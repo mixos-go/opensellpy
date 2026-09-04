@@ -12,21 +12,26 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --max-warnings 0",
-    "test": "node -e \"console.log('adapter-shopee: no tests yet')\""
+    "test": "node --test 'dist/**/*.test.js'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@mixos-go/shopee-sdk": "^1.1.0"
+  },
   "peerDependencies": {
     "@opensellpy/core": "workspace:*"
   },
   "devDependencies": {
     "@opensellpy/core": "workspace:*",
-    "typescript": "^5.4.0",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
   },
   "engines": {
     "node": ">=20"

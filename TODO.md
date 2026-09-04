@@ -69,19 +69,19 @@ Depend ke Fase 1 + 2. **Prasyarat eksternal:** connector `@mixos-go/shopee-sdk` 
 `mixos-go/shopee`. Domain dikerjakan berurutan sesuai prioritas (order dulu, baru boleh paralel
 yang lain).
 
-- [ ] `adapters/shopee/src/config.ts` + `client/shopee.factory.ts` — instantiate connector
+- [x] `adapters/shopee/src/config.ts` + `client/shopee.factory.ts` — instantiate connector
       `createShopeeConnector(config)` dari `@mixos-go/shopee-sdk` (contract `TokenStore` seragam +
       multi-seller). Adapter memakai `TokenStore` (mis. dari backend opensellpy) + `getClient(shopId)`.
       OAuth/token refresh TIDAK dikelola di sini.
-- [ ] `adapters/shopee/src/errors/shopee-error.mapper.ts`
-- [ ] `adapters/shopee/src/domains/order/` — provider + mapper + params-mapper + status-map
-- [ ] `adapters/shopee/src/domains/product/`
-- [ ] `adapters/shopee/src/domains/category/`
-- [ ] `adapters/shopee/src/domains/inventory/`
-- [ ] `adapters/shopee/src/domains/logistics/`
-- [ ] `adapters/shopee/src/capabilities.ts` — isi HANYA domain yang sudah selesai + test
-- [ ] `adapters/shopee/src/index.ts` — `createShopeeAdapter(config)`
-- [ ] Unit test tiap mapper: kasus data lengkap + kasus field opsional kosong
+- [x] `adapters/shopee/src/errors/shopee-error.mapper.ts`
+- [x] `adapters/shopee/src/domains/order/` — provider + mapper + params-mapper + status-map
+- [x] `adapters/shopee/src/domains/product/`
+- [x] `adapters/shopee/src/domains/category/`
+- [x] `adapters/shopee/src/domains/inventory/`
+- [x] `adapters/shopee/src/domains/logistics/`
+- [x] `adapters/shopee/src/capabilities.ts` — isi HANYA domain yang sudah selesai + test
+- [x] `adapters/shopee/src/index.ts` — `createShopeeAdapter(config)`
+- [x] Unit test tiap mapper: kasus data lengkap + kasus field opsional kosong
 
 ## Fase 5 — Adapter TTS (TikTok Shop, pasca-merger Tokopedia)
 
