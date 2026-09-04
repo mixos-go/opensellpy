@@ -1,13 +1,21 @@
 import type { PlatformKey } from './platform-key.js'
 import type { DomainKey } from './domain-key.js'
+import type { IOrderProvider } from '../domains/order/order.contract.js'
+import type { IProductProvider } from '../domains/product/product.contract.js'
+import type { ICategoryProvider } from '../domains/category/category.contract.js'
+import type { IInventoryProvider } from '../domains/inventory/inventory.contract.js'
+import type { ILogisticsProvider } from '../domains/logistics/logistics.contract.js'
 
 /**
- * PlatformAdapter is the surface a single marketplace planes to `client`.
- * Provider fields (`order`, `product`, ...) are added in Fase 2 once the
- * domain contracts (`I*Provider` in `domains/`) exist.
+ * PlatformAdapter is the surface a single marketplace exposes to `client`.
  */
 export interface PlatformAdapter<Extra = unknown> {
   readonly platform: PlatformKey
   readonly capabilities: readonly DomainKey[]
-  readonly extra?: Extra
+  order: IOrderProvider
+  product: IProductProvider
+  category: ICategoryProvider
+  inventory: IInventoryProvider
+  logistics: ILogisticsProvider
+  extra?: Extra
 }

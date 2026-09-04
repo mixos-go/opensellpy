@@ -38,19 +38,19 @@ Urutan wajib duluan karena semua domain depend ke sini.
 Masing-masing bisa dikerjakan paralel oleh agent berbeda — tidak saling depend, hanya depend ke
 Fase 1.
 
-- [ ] `core/src/domains/order/` — `Order`, `OrderItem`, `OrderStatus`, `ListOrdersParams`,
+- [x] `core/src/domains/order/` — `Order`, `OrderItem`, `OrderStatus`, `ListOrdersParams`,
       `IOrderProvider` (listOrders, getOrder, updateOrderStatus)
-- [ ] `core/src/domains/product/` — `Product`, `ProductVariant`, `IProductProvider`
+- [x] `core/src/domains/product/` — `Product`, `ProductVariant`, `IProductProvider`
       (listProducts, getProduct, createProduct, updateProduct, updateStock-nya ke inventory bukan
       sini)
-- [ ] `core/src/domains/category/` — `Category` (tree), `ICategoryProvider` (getCategoryTree,
+- [x] `core/src/domains/category/` — `Category` (tree), `ICategoryProvider` (getCategoryTree,
       getCategoryAttributes)
-- [ ] `core/src/domains/inventory/` — `StockLevel`, `Warehouse`, `IInventoryProvider`
+- [x] `core/src/domains/inventory/` — `StockLevel`, `Warehouse`, `IInventoryProvider`
       (getStock, updateStock)
-- [ ] `core/src/domains/logistics/` — `Shipment`, `TrackingEvent`, `ILogisticsProvider`
+- [x] `core/src/domains/logistics/` — `Shipment`, `TrackingEvent`, `ILogisticsProvider`
       (createShipment, getTracking, cancelShipment)
-- [ ] `core/src/events/order.events.ts` — `OrderCreatedEvent`, `OrderStatusChangedEvent`
-- [ ] `core/src/index.ts` — barrel export final, review manual field mana yang perlu public
+- [x] `core/src/events/order.events.ts` — `OrderCreatedEvent`, `OrderStatusChangedEvent`
+- [x] `core/src/index.ts` — barrel export final, review manual field mana yang perlu public
 
 ## Fase 3 — Client orchestrator
 

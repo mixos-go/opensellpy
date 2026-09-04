@@ -17,3 +17,47 @@ export {
 export type { PlatformErrorOptions } from './errors/index.js'
 
 export type { DomainEvent, EventName } from './events/index.js'
+export type {
+  OrderCreatedEvent,
+  OrderCreatedPayload,
+  OrderStatusChangedEvent,
+  OrderStatusChangedPayload,
+} from './events/index.js'
+
+export type {
+  Order,
+  OrderItem,
+  OrderAddress,
+  OrderStatus,
+  OrderItemStatus,
+  ListOrdersParams,
+  IOrderProvider,
+} from './domains/order/index.js'
+export type {
+  Product,
+  ProductVariant,
+  ProductStatus,
+  ListProductsParams,
+  CreateProductInput,
+  UpdateProductInput,
+  IProductProvider,
+} from './domains/product/index.js'
+export type {
+  Category,
+  CategoryAttribute,
+  ICategoryProvider,
+} from './domains/category/index.js'
+export type {
+  StockLevel,
+  UpdateStockInput,
+  Warehouse,
+  IInventoryProvider,
+} from './domains/inventory/index.js'
+export type {
+  Shipment,
+  ShipmentItem,
+  TrackingEvent,
+  ShipmentStatus,
+  CreateShipmentInput,
+  ILogisticsProvider,
+} from './domains/logistics/index.js'
