@@ -23,15 +23,15 @@ Status: `[ ]` belum, `[~]` in progress (tandai dengan nama agent/branch), `[x]` 
 
 Urutan wajib duluan karena semua domain depend ke sini.
 
-- [ ] `core/src/shared/money.ts`, `pagination.ts`
-- [ ] `core/src/errors/platform.error.ts` (base class) + `auth.error.ts`, `rate-limit.error.ts`,
+- [x] `core/src/shared/money.ts`, `pagination.ts`
+- [x] `core/src/errors/platform.error.ts` (base class) + `auth.error.ts`, `rate-limit.error.ts`,
       `not-found.error.ts`, `validation.error.ts`, `index.ts`
-- [ ] `core/src/platform/platform-key.ts` — union `'shopee' | 'tts' | 'lazada' | 'blibli'`
-- [ ] `core/src/platform/domain-key.ts` — union domain awal: `'order' | 'product' | 'category' |
+- [x] `core/src/platform/platform-key.ts` — union `'shopee' | 'tts' | 'lazada' | 'blibli'`
+- [x] `core/src/platform/domain-key.ts` — union domain awal: `'order' | 'product' | 'category' |
       'inventory' | 'logistics'` (mulai dari 5 domain yang ada di semua platform, sesuai
       capability matrix diskusi awal)
-- [ ] `core/src/platform/platform-adapter.ts` — interface `PlatformAdapter<Extra = unknown>`
-- [ ] `core/src/events/event.types.ts` — base `DomainEvent<T>`
+- [x] `core/src/platform/platform-adapter.ts` — interface `PlatformAdapter<Extra = unknown>`
+- [x] `core/src/events/event.types.ts` — base `DomainEvent<T>`
 
 ## Fase 2 — Core: domain contracts (5 domain prioritas)
 

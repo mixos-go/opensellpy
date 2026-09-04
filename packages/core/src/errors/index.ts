@@ -1,0 +1,5 @@
+export { PlatformError, type PlatformErrorOptions } from './platform.error.js'
+export { PlatformAuthError } from './auth.error.js'
+export { RateLimitError } from './rate-limit.error.js'
+export { NotFoundError } from './not-found.error.js'
+export { ValidationError } from './validation.error.js'
