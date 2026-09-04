@@ -43,7 +43,7 @@ Fase 1.
 - [ ] `core/src/domains/product/` — `Product`, `ProductVariant`, `IProductProvider`
       (listProducts, getProduct, createProduct, updateProduct, updateStock-nya ke inventory bukan
       sini)
-- [ ] `core/src/domains/category/` — `Category` (tree), `IcategoryProvider` (getCategoryTree,
+- [ ] `core/src/domains/category/` — `Category` (tree), `ICategoryProvider` (getCategoryTree,
       getCategoryAttributes)
 - [ ] `core/src/domains/inventory/` — `StockLevel`, `Warehouse`, `IInventoryProvider`
       (getStock, updateStock)
@@ -64,11 +64,15 @@ Depend ke Fase 1 + 2 selesai.
 
 ## Fase 4 — Adapter Shopee (platform prioritas pertama)
 
-Depend ke Fase 1 + 2. Domain dikerjakan berurutan sesuai prioritas (order dulu, baru boleh
-paralel yang lain).
+Depend ke Fase 1 + 2. **Prasyarat eksternal:** connector `@mixos-go/shopee-sdk` (contract seragam:
+`createShopeeConnector` + `TokenStore` + multi-seller) harus sudah rilis — ikuti `TODO.md` di repo
+`mixos-go/shopee`. Domain dikerjakan berurutan sesuai prioritas (order dulu, baru boleh paralel
+yang lain).
 
-- [ ] `adapters/shopee/src/config.ts` + `client/shopee.factory.ts` (instantiate connector dari
-      `@mixos-go/shopee-sdk`; OAuth/token refresh sudah dihandle connector tsb, bukan di sini)
+- [ ] `adapters/shopee/src/config.ts` + `client/shopee.factory.ts` — instantiate connector
+      `createShopeeConnector(config)` dari `@mixos-go/shopee-sdk` (contract `TokenStore` seragam +
+      multi-seller). Adapter memakai `TokenStore` (mis. dari backend opensellpy) + `getClient(shopId)`.
+      OAuth/token refresh TIDAK dikelola di sini.
 - [ ] `adapters/shopee/src/errors/shopee-error.mapper.ts`
 - [ ] `adapters/shopee/src/domains/order/` — provider + mapper + params-mapper + status-map
 - [ ] `adapters/shopee/src/domains/product/`
@@ -81,8 +85,8 @@ paralel yang lain).
 
 ## Fase 5 — Adapter TTS (TikTok Shop, pasca-merger Tokopedia)
 
-Pola identik Fase 4, ganti target jadi `tts` (package `@opensellpy/adapter-tts`, depend ke
-`@mixos-go/tiktok-shop-sdk`). Bisa mulai paralel begitu Fase 4 struktur
+Pola identik Fase 4, ganti target jadi `tts` (package `@opensellpy/adapter-tts`, konsumsi
+connector `@mixos-go/tiktok-shop-sdk`). Bisa mulai paralel begitu Fase 4 struktur
 providernya sudah jadi referensi (tidak perlu nunggu Fase 4 100% selesai, cukup domain order-nya
 selesai sebagai referensi pola).
 
@@ -90,11 +94,11 @@ selesai sebagai referensi pola).
 
 ## Fase 6 — Adapter Lazada
 
-- [ ] `adapters/lazada/...` (checklist sama seperti Fase 4)
+- [ ] `adapters/lazada/...` (checklist sama seperti Fase 4, konsumsi connector `@mixos-go/lazada-sdk`)
 
 ## Fase 7 — Adapter Blibli
 
-- [ ] `adapters/blibli/...` (checklist sama seperti Fase 4)
+- [ ] `adapters/blibli/...` (checklist sama seperti Fase 4, konsumsi connector `@mixos-go/bli-bli-sdk`)
 - [ ] Catat di `docs/CAPABILITY_MATRIX.md` domain mana yang memang tidak tersedia di Blibli
       (jangan dipaksa implement kalau API-nya memang tidak ada)
 
@@ -146,3 +150,27 @@ platform tunggal, naik ke `core` kalau sudah dipakai ≥2 platform).
 > implementasi per-platform lebih ringkas, tapi **tidak** otomatis membuat semua domain "masuk core".
 > Kriteria masuk `core` tetap = semantik sama lintas **≥2 platform**. "SDK-nya sudah meng-cover
 > endpoint" ≠ universal. 5 domain di atas tetap inti; sisanya ditahan sampai ada kebutuhan konkret.
+
+---
+
+## Koordinasi dengan repo SDK marketplace
+
+Connector/OAuth (contract seragam `TokenStore` + multi-seller) dikerjakan di repo SDK masing-masing,
+BUKAN di repo ini. TODO penerapannya ada di:
+
+- `mixos-go/shopee` → `TODO.md`
+- `mixos-go/tiktok-shop` → `TODO.md`
+- `mixos-go/lazada` → `TODO.md`
+- `mixos-go/bli-bli` → `TODO.md`
+
+**Kontrak seragam connector** (identik di 4 repo): `connector/{types,token-store,connector,index}.ts`,
+`TokenSet`, `TokenStore { get/set/delete }`, `<Platform>Connector` multi-seller
+(`buildAuthUrl(shopId)`, `handleCallback(shopId,code)`, `refresh(shopId)`, `getClient(shopId)`,
+`listShopIds()`), `create<Platform>Connector(config)`.
+
+Urutan kerja (sudah disepakati):
+1. skeleton opensellpy (✅ Fase 0)
+2. TODO di tiap repo SDK marketplace (✅ sudah dipush ke 4 repo)
+3. kerjakan TODO opensellpy (Fase 1+ — mulai di sini)
+4. kerjakan TODO masing-masing SDK marketplace (kapan saja, paralel; prasyarat utk Fase 4-7
+   adapter opensellpy)
