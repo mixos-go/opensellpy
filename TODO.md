@@ -56,11 +56,11 @@ Fase 1.
 
 Depend ke Fase 1 + 2 selesai.
 
-- [ ] `client/src/plugin-registry.ts` — `Map<PlatformKey, PlatformAdapter>`, method
+- [x] `client/src/plugin-registry.ts` — `Map<PlatformKey, PlatformAdapter>`, method
       `register`/`get`/`has`
-- [ ] `client/src/omni-client.ts` — class `OmniClient`, method `.platform(key)`
-- [ ] `client/src/capability.ts` — `getCapabilities(platform)`, `supports(platform, domain)`
-- [ ] Unit test `OmniClient` pakai adapter dummy inline (belum butuh mock-adapters package)
+- [x] `client/src/omni-client.ts` — class `OmniClient`, method `.platform(key)`
+- [x] `client/src/capability.ts` — `getCapabilities(platform)`, `supports(platform, domain)`
+- [x] Unit test `OmniClient` pakai adapter dummy inline (belum butuh mock-adapters package)
 
 ## Fase 4 — Adapter Shopee (platform prioritas pertama)
 
