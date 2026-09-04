@@ -1,0 +1,29 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# build output
+dist
+build
+.turbo
+
+# test / coverage
+coverage
+
+# editor / os
+.vscode
+.idea
+.DS_Store
+
+# env
+.env
+.env.local
+.env.*.local
+
+# changeset temp
+.changeset/*.md
+!.changeset/config.json
+!.changeset/README.md
+
+# npm / registry secrets (JANGAN commit token ke sini)
+.npmrc

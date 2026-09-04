@@ -1,0 +1,34 @@
+{
+  "name": "@opensellpy/adapter-tts",
+  "version": "0.0.0",
+  "description": "OpenSellPy — TikTok Shop (pasca-merger Tokopedia) adapter. Maps @mixos-go/tiktok-shop-sdk connector to core domain contracts.",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --max-warnings 0",
+    "test": "node -e \"console.log('adapter-tts: no tests yet')\""
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@opensellpy/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@opensellpy/core": "workspace:*",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

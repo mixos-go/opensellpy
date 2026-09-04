@@ -1,0 +1,23 @@
+{
+  "name": "@opensellpy/example",
+  "version": "0.0.0",
+  "description": "OpenSellPy — consumer app contoh / smoke test manual.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --max-warnings 0",
+    "test": "node -e \"console.log('example: no tests yet')\""
+  },
+  "dependencies": {
+    "@opensellpy/client": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

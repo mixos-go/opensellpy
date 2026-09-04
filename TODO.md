@@ -9,15 +9,15 @@ Status: `[ ]` belum, `[~]` in progress (tandai dengan nama agent/branch), `[x]` 
 
 ## Fase 0 — Scaffold repo
 
-- [ ] Init pnpm workspace + turborepo (`pnpm-workspace.yaml`, `turbo.json`)
-- [ ] `tsconfig.base.json` sesuai `docs/ARCHITECTURE.md` §8
-- [ ] `eslint.config.mjs` + rule `no-restricted-imports` per arah dependency (§8)
-- [ ] Setup `.changeset` untuk versioning independen per package
-- [ ] `.github/workflows/ci.yml`: run `typecheck`, `lint`, `test` di semua package tiap PR
-- [ ] Buat skeleton kosong: `packages/core`, `packages/client`, `packages/adapters/{shopee,tts,lazada,blibli}`, `packages/testing`, `apps/example` — masing-masing cuma `package.json` + `tsconfig.json` + `src/index.ts` kosong
-- [ ] `docs/ADDING_A_DOMAIN.md` — expand dari ringkasan di `AGENTS.md` §2
-- [ ] `docs/ADDING_A_PLATFORM.md` — expand dari ringkasan di `AGENTS.md` §4
-- [ ] `docs/CAPABILITY_MATRIX.md` — tabel kosong, kolom = 4 platform, baris = domain
+- [x] Init pnpm workspace + turborepo (`pnpm-workspace.yaml`, `turbo.json`)
+- [x] `tsconfig.base.json` sesuai `docs/ARCHITECTURE.md` §8
+- [x] `eslint.config.mjs` + rule `no-restricted-imports` per arah dependency (§8)
+- [x] Setup `.changeset` untuk versioning independen per package
+- [x] `.github/workflows/ci.yml`: run `typecheck`, `lint`, `test` di semua package tiap PR
+- [x] Buat skeleton kosong: `packages/core`, `packages/client`, `packages/adapters/{shopee,tts,lazada,blibli}`, `packages/testing`, `apps/example` — masing-masing cuma `package.json` + `tsconfig.json` + `src/index.ts` kosong
+- [x] `docs/ADDING_A_DOMAIN.md` — expand dari ringkasan di `AGENTS.md` §2
+- [x] `docs/ADDING_A_PLATFORM.md` — expand dari ringkasan di `AGENTS.md` §4
+- [x] `docs/CAPABILITY_MATRIX.md` — tabel kosong, kolom = 4 platform, baris = domain
 
 ## Fase 1 — Core: shared + errors + platform types
 
