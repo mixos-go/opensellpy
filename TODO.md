@@ -125,8 +125,28 @@ pastikan `region` per connector benar (default `singapore`, Indonesia = `indones
 
 ## Fase 7 — Adapter Blibli
 
-- [ ] `adapters/blibli/...` (checklist sama seperti Fase 4, konsumsi connector `@mixos-go/bli-bli-sdk`)
-- [ ] Catat di `docs/CAPABILITY_MATRIX.md` domain mana yang memang tidak tersedia di Blibli
+- [x] `adapters/blibli/src/config.ts` + `adapters/blibli/src/client/blibli.factory.ts` — instantiate
+      connector `createBlibliConnector(config)` dari `@mixos-go/bli-bli-sdk` (contract `TokenStore`
+      seragam + multi-seller). Blibli tanpa OAuth: registrasi shop = `connect(shopId, apiSellerKey)`
+      (dipanggil eager di constructor); `redirectUri` dipertahankan untuk kontrak seragam.
+- [x] `adapters/blibli/src/errors/blibli-error.mapper.ts`
+- [x] `adapters/blibli/src/client/request.ts` — `callRaw`/`callEnvelope`/`assertOk`: buka envelope
+      `{requestId, content}|{success, value}`, deteksi error `{success:false, errorCode, errorMessage}`
+      (client SDK tidak throw pada envelope error), 204 → null
+- [x] `adapters/blibli/src/domains/order/` — provider + mapper + params-mapper + status-map
+      (spec custom: Order List V2 / Order Detail V2 / Fulfill Regular V2)
+- [x] `adapters/blibli/src/domains/product/` (spec custom: Product List V3 via path benar
+      `/seller/v1/products/filter`, Product Detail V2, Create Product V3 async, archive/unarchive,
+      Update Product Detail V2)
+- [x] `adapters/blibli/src/domains/category/` (Category Tree V1 mtaapi + Category Attributes V2)
+- [x] `adapters/blibli/src/domains/inventory/` (getStock agregat `counter.stock`; updateStock perlu
+      blibliSku — resolve via Product Variant Pickup Point List V1; warehouse = pickup point)
+- [x] `adapters/blibli/src/domains/logistics/` (createShipment = pack+fulfill; getTracking via
+      Order List V2 filter packageId + Order Detail V2; cancelShipment → ValidationError)
+- [x] `adapters/blibli/src/capabilities.ts` — isi HANYA domain yang sudah selesai + test
+- [x] `adapters/blibli/src/index.ts` — `createBlibliAdapter(config)`
+- [x] Unit test tiap mapper + status-map + params-mapper + client/request wrapper
+- [x] Catat di `docs/CAPABILITY_MATRIX.md` domain mana yang memang tidak tersedia di Blibli
       (jangan dipaksa implement kalau API-nya memang tidak ada)
 
 ## Fase 8 — Testing package

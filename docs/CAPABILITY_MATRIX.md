@@ -15,11 +15,11 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
 
 | Domain | shopee | tts | lazada | blibli |
 |---|---|---|---|---|
-| order | ✅ | ✅ | ✅ | ⬜ |
-| product | ✅ | ✅ | ✅ | ⬜ |
-| category | ✅ | ✅ | ✅ | ⬜ |
-| inventory | ✅ | ✅ | ✅ | ⬜ |
-| logistics | ✅ | ✅ | ✅ | ⬜ |
+| order | ✅ | ✅ | ✅ | ✅ |
+| product | ✅ | ✅ | ✅ | ✅ |
+| category | ✅ | ✅ | ✅ | ✅ |
+| inventory | ✅ | ✅ | ✅ | ✅ |
+| logistics | ✅ | ✅ | ✅ | ✅ |
 
 ## Catatan
 
@@ -49,3 +49,24 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
   tidak didukung API → ValidationError; (5) `listWarehouses` mengembalikan lokasi tunggal `DEFAULT`
   (Lazada tak punya endpoint daftar gudang global); (6) `createProduct/createShipment` selalu
   quantity/stock = 0 — segera lanjut dengan `updateStock`.
+- blibli ✅ = provider + mapper + params-mapper + status-map terimplement; unit test mapper + client
+  wrapper (`callRaw`/`assertOk` envelope). SDK `@mixos-go/bli-bli-sdk` diakses via `client.request`
+  dengan spec custom (method generated SDK punya path/body yang rusak: path literal contoh,
+  `body: []`, typo `/filter**`). Batasan yang dicatat: (1) Blibli **tanpa OAuth** — auth = Basic
+  (clientKey:clientSecret) + header `Api-Seller-Key`; `redirectUri` tidak terpakai;
+  (2) satu Order domain = satu order-item Blibli (`itemId`), bukan order kart lengkap (`id` order —
+  dicatat sebagai `platformOrderId`); (3) `updateOrderStatus` hanya `shipped` (= pack+fulfill,
+  dengan fallback Create Package V1 dari Combine Shipping API), pembatalan order tidak didukung;
+  (4) product domain memakai product **L3/sellerSku** dengan SATU variant sintetis (harga
+  `price.normal.min`) karena Blibli tidak punya variant listing di list/detail;
+  (5) `updateProduct` mendukung name/description + archive/unarchive; ganti kategori & kelola
+  gambar = ValidationError (kategori via Seller Center, gambar per-blibliSku via Add Image V1);
+  (6) stok Blibli per-variant/blibliSku (L4): `getStock` = agregat `counter.stock` (Product List V3),
+  `updateStock` memerlukan blibliSku — di-resolve otomatis dari Product Variant Pickup Point List V1
+  saat input berupa sellerSku (gagal → ValidationError);
+  (7) `createProduct` = Create Product V3 (queue async, 202) — payload berisi product `name`,
+  `categoryCode`, `productItems[{sellerSku, price, stock:0}]`; butuh isian brand/dimensi/logistic di
+  Seller Center utk lolos approval; (8) warehouse = pickup point Blibli (Pickup Point List V2);
+  (9) `getTracking` membaca Order List V2 (filter `packageId`) + Order Detail V2
+  (`shipment.statuses`), `cancelShipment` tidak didukung API → ValidationError;
+  (10) `draft` tidak punya filter/nilai state → `toBlibliProductStateFilter('draft') = undefined`.

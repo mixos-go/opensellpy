@@ -17,9 +17,11 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --max-warnings 0",
-    "test": "node -e \"console.log('adapter-blibli: no tests yet')\""
+    "test": "node --test 'dist/**/*.test.js'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@mixos-go/bli-bli-sdk": "^1.1.0"
+  },
   "peerDependencies": {
     "@opensellpy/core": "workspace:*"
   },

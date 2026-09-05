@@ -44,6 +44,10 @@ importers:
         version: 5.9.3
 
   packages/adapters/blibli:
+    dependencies:
+      '@mixos-go/bli-bli-sdk':
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@opensellpy/core':
         specifier: workspace:*
@@ -271,6 +275,10 @@ packages:
 
   '@manypkg/get-packages@1.1.3':
     resolution: {integrity: sha512-fo+QhuU3qE/2TQMQmbVMqaQ6EWbMhi4ABWP+O4AM1NqPBuy0OrApV5LO6BrrgnhtAHS2NH6RrVk9OL181tTi8A==}
+
+  '@mixos-go/bli-bli-sdk@1.1.0':
+    resolution: {integrity: sha512-0FssSp1pWJ26/D2rVFQ5XNHah71hEpCyA/kzSbqACZUOjWhP0KJkmxpaBhBjyuY2xLDz11KwZCGbn1kknOoFJA==, tarball: https://npm.pkg.github.com/download/@mixos-go/bli-bli-sdk/1.1.0/3daf09e5c05c4439af51d537689a37db13dc16d9}
+    engines: {node: '>=16'}
 
   '@mixos-go/lazada-sdk@1.1.0':
     resolution: {integrity: sha512-oWqqm2OEtxJo1yRh8ap8KlsHi7nGgOEcEdHIFYUYEm92ewp+Euvk5H1MK66CXy1sm82j1qjN16WenJU3e4C/cw==, tarball: https://npm.pkg.github.com/download/@mixos-go/lazada-sdk/1.1.0/7aa27cd9854ab52bfdf21ca2ed85afc459b1e032}
@@ -1681,6 +1689,8 @@ snapshots:
       fs-extra: 8.1.0
       globby: 11.1.0
       read-yaml-file: 1.1.0
+
+  '@mixos-go/bli-bli-sdk@1.1.0': {}
 
   '@mixos-go/lazada-sdk@1.1.0': {}
 
