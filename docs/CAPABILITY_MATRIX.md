@@ -15,11 +15,11 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
 
 | Domain | shopee | tts | lazada | blibli |
 |---|---|---|---|---|
-| order | ✅ | ✅ | ⬜ | ⬜ |
-| product | ✅ | ✅ | ⬜ | ⬜ |
-| category | ✅ | ✅ | ⬜ | ⬜ |
-| inventory | ✅ | ✅ | ⬜ | ⬜ |
-| logistics | ✅ | ✅ | ⬜ | ⬜ |
+| order | ✅ | ✅ | ✅ | ⬜ |
+| product | ✅ | ✅ | ✅ | ⬜ |
+| category | ✅ | ✅ | ✅ | ⬜ |
+| inventory | ✅ | ✅ | ✅ | ⬜ |
+| logistics | ✅ | ✅ | ✅ | ⬜ |
 
 ## Catatan
 
@@ -40,3 +40,12 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
   `shipped` (create package); (5) `getStock` berbasis SKU terdaftar; `warehouseId` diabaikan pada
   `updateStock` (stok TTS SKU-level); (6) tracking tersedia utk paket yang dibuat via
   `createShipment` (id paket di-memori di adapter).
+- lazada ✅ = provider + mapper + params-mapper + status-map terimplement; unit test mapper.
+  Batasan yang dicatat: (1) tidak ada endpoint `activate` produk → `updateProduct({status:'active'})`
+  = ValidationError (re-aktifkan via Seller Center); (2) `listProducts` melakukan detail per id
+  (`getProductItem`) karena response `getProducts` hanya item_id → N+1; (3) `getTracking` adalah
+  snapshot dari `order/items/get` (tidak ada riwayat event lintas carrier) dan hanya utk paket yang
+  dibuat via `createShipment` (map id ke order di-memori); (4) `cancelShipment` & pembatalan order
+  tidak didukung API → ValidationError; (5) `listWarehouses` mengembalikan lokasi tunggal `DEFAULT`
+  (Lazada tak punya endpoint daftar gudang global); (6) `createProduct/createShipment` selalu
+  quantity/stock = 0 — segera lanjut dengan `updateStock`.

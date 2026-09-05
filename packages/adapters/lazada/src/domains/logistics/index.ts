@@ -1,0 +1,1 @@
+export { LazadaLogisticsProvider } from './logistics.provider.js'

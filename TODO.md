@@ -106,7 +106,22 @@ selesai sebagai referensi pola).
 
 ## Fase 6 — Adapter Lazada
 
-- [ ] `adapters/lazada/...` (checklist sama seperti Fase 4, konsumsi connector `@mixos-go/lazada-sdk`)
+Pola identik Fase 4/5, konsumsi connector `@mixos-go/lazada-sdk`. Access token Lazada terikat region;
+pastikan `region` per connector benar (default `singapore`, Indonesia = `indonesia`).
+
+- [x] `adapters/lazada/src/config.ts` + `adapters/lazada/src/client/lazada.factory.ts` — instantiate
+      connector `createLazadaConnector(config)` dari `@mixos-go/lazada-sdk` (contract `TokenStore`
+      seragam + multi-seller). Adapter memakai `TokenStore` + `getClient(shopId)`.
+      OAuth/token refresh TIDAK dikelola di sini.
+- [x] `adapters/lazada/src/errors/lazada-error.mapper.ts`
+- [x] `adapters/lazada/src/domains/order/` — provider + mapper + params-mapper + status-map
+- [x] `adapters/lazada/src/domains/product/`
+- [x] `adapters/lazada/src/domains/category/`
+- [x] `adapters/lazada/src/domains/inventory/`
+- [x] `adapters/lazada/src/domains/logistics/`
+- [x] `adapters/lazada/src/capabilities.ts` — isi HANYA domain yang sudah selesai + test
+- [x] `adapters/lazada/src/index.ts` — `createLazadaAdapter(config)`
+- [x] Unit test tiap mapper: kasus data lengkap + kasus field opsional kosong
 
 ## Fase 7 — Adapter Blibli
 

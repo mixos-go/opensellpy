@@ -1,0 +1,1 @@
+export { LazadaInventoryProvider } from './inventory.provider.js'
