@@ -84,6 +84,10 @@ importers:
         version: 5.9.3
 
   packages/adapters/tts:
+    dependencies:
+      '@mixos-go/tiktok-shop-sdk':
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@opensellpy/core':
         specifier: workspace:*
@@ -266,6 +270,10 @@ packages:
 
   '@mixos-go/shopee-sdk@1.1.0':
     resolution: {integrity: sha512-h6awFYGKi4TGexcUVPOmeFw2DmypZ+/VUncgWppvVZf8djz0wh3q3jaQFo7uevw9VWLzia77gWOOxTdDMHJP2A==, tarball: https://npm.pkg.github.com/download/@mixos-go/shopee-sdk/1.1.0/2a74ee9b1b4258d8ab3d88482d7e7ec9f0edc06d}
+    engines: {node: '>=16'}
+
+  '@mixos-go/tiktok-shop-sdk@1.1.0':
+    resolution: {integrity: sha512-YMei6muQF2LjAu7LrtkThhP1cRPd6PfUWzBufwk/3s1qlIwLsTFPHqZlLZEnJgLQQC0q4aUr4BcRi1/XmDNsBQ==, tarball: https://npm.pkg.github.com/download/@mixos-go/tiktok-shop-sdk/1.1.0/398527921fe93216877d9c177dbc5918a444539c}
     engines: {node: '>=16'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -1667,6 +1675,8 @@ snapshots:
       read-yaml-file: 1.1.0
 
   '@mixos-go/shopee-sdk@1.1.0': {}
+
+  '@mixos-go/tiktok-shop-sdk@1.1.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

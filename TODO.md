@@ -90,7 +90,19 @@ connector `@mixos-go/tiktok-shop-sdk`). Bisa mulai paralel begitu Fase 4 struktu
 providernya sudah jadi referensi (tidak perlu nunggu Fase 4 100% selesai, cukup domain order-nya
 selesai sebagai referensi pola).
 
-- [ ] `adapters/tts/...` (checklist sama seperti Fase 4)
+- [x] `adapters/tts/src/config.ts` + `adapters/tts/src/client/tts.factory.ts` — instantiate connector
+      `createTikTokShopConnector(config)` dari `@mixos-go/tiktok-shop-sdk` (contract `TokenStore`
+      seragam + multi-seller). Adapter memakai `TokenStore` + `getClient(shopId)`.
+      OAuth/token refresh TIDAK dikelola di sini.
+- [x] `adapters/tts/src/errors/tiktok-error.mapper.ts`
+- [x] `adapters/tts/src/domains/order/` — provider + mapper + params-mapper + status-map
+- [x] `adapters/tts/src/domains/product/`
+- [x] `adapters/tts/src/domains/category/`
+- [x] `adapters/tts/src/domains/inventory/`
+- [x] `adapters/tts/src/domains/logistics/`
+- [x] `adapters/tts/src/capabilities.ts` — isi HANYA domain yang sudah selesai + test
+- [x] `adapters/tts/src/index.ts` — `createTtsAdapter(config)`
+- [x] Unit test tiap mapper: kasus data lengkap + kasus field opsional kosong
 
 ## Fase 6 — Adapter Lazada
 

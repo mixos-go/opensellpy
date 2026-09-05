@@ -15,11 +15,11 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
 
 | Domain | shopee | tts | lazada | blibli |
 |---|---|---|---|---|
-| order | ✅ | ⬜ | ⬜ | ⬜ |
-| product | ✅ | ⬜ | ⬜ | ⬜ |
-| category | ✅ | ⬜ | ⬜ | ⬜ |
-| inventory | ✅ | ⬜ | ⬜ | ⬜ |
-| logistics | ✅ | ⬜ | ⬜ | ⬜ |
+| order | ✅ | ✅ | ⬜ | ⬜ |
+| product | ✅ | ✅ | ⬜ | ⬜ |
+| category | ✅ | ✅ | ⬜ | ⬜ |
+| inventory | ✅ | ✅ | ⬜ | ⬜ |
+| logistics | ✅ | ✅ | ⬜ | ⬜ |
 
 ## Catatan
 
@@ -32,3 +32,11 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
   `page > 1` belum bisa lanjut (kontrak core pakai page/limit); (4) `listWarehouses` mengembalikan
   lokasi tunggal `DEFAULT` karena Shopee tak punya endpoint daftar gudang global;
   (5) `cancelShipment` tidak didukung API Shopee (ValidationError).
+- tts ✅ = provider + mapper + params-mapper + status-map terimplement; unit test mapper.
+  Batasan yang dicatat: (1) pagination TTS pakai `page_token` (cursor) sehingga `page > 1` belum
+  bisa lanjut; (2) ListProducts melakukan detail per produk (search response hanya id) sehingga
+  lebih lambat di catalog besar; (3) pembatalan order & `cancelShipment` tidak didukung via API
+  TTS (ValidationError — batalkan via Seller Center); (4) `updateOrderStatus` hanya transisi
+  `shipped` (create package); (5) `getStock` berbasis SKU terdaftar; `warehouseId` diabaikan pada
+  `updateStock` (stok TTS SKU-level); (6) tracking tersedia utk paket yang dibuat via
+  `createShipment` (id paket di-memori di adapter).
