@@ -8,10 +8,17 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --max-warnings 0",
+    "start": "node dist/index.js",
     "test": "node -e \"console.log('example: no tests yet')\""
   },
   "dependencies": {
-    "@opensellpy/client": "workspace:*"
+    "@opensellpy/adapter-blibli": "workspace:*",
+    "@opensellpy/adapter-lazada": "workspace:*",
+    "@opensellpy/adapter-shopee": "workspace:*",
+    "@opensellpy/adapter-tts": "workspace:*",
+    "@opensellpy/client": "workspace:*",
+    "@opensellpy/core": "workspace:*",
+    "@opensellpy/testing": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

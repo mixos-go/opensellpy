@@ -177,9 +177,13 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
 
 ## Fase 10 — apps/example (consumer contoh)
 
-- [ ] Setup consumer app minimal: register 2 adapter, list order, render capability-based UI
-      (contoh kongkret pola `if (caps.includes('promotion')) ...` dari diskusi arsitektur)
-- [ ] Jadi acuan manual smoke test tiap kali ada release
+- [x] Setup consumer app minimal `apps/example`: register adapter (mock Shopee + TikTok), list order,
+      capability-based UI (pola `if (caps.includes('promotion'))` — fitur non-core dirender hanya bila
+      di capabilities), stok + shipment + update status (bukti data mock persist)
+- [x] Webhook demo (Fase 9): verifySignature + parse utk ke-4 platform memakai handler REAL
+      adapter, request bertanda tangan dibangun di contoh
+- [x] Jadi acuan manual smoke test — jalankan `pnpm --filter @opensellpy/example start` (offline,
+      tanpa kredensial; butuh `build` dulu)
 
 ## Fase 11 — Release & docs finalisasi
 
