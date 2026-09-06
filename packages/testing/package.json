@@ -1,8 +1,10 @@
 {
   "name": "@mixos-go/opensellpy-testing",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "OpenSellPy — fixtures + mock adapters for tests. Must NOT depend on any @mixos-go SDK.",
-  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +14,10 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
