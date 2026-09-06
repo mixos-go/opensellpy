@@ -187,10 +187,14 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
 
 ## Fase 11 — Release & docs finalisasi
 
-- [ ] Review ulang seluruh `docs/CAPABILITY_MATRIX.md` — pastikan sinkron sama capabilities.ts
-      tiap adapter
-- [ ] `README.md` root — quickstart pakai contoh dari `apps/example`
-- [ ] First release lewat changeset ke npm untuk semua package
+- [x] Review ulang seluruh `docs/CAPABILITY_MATRIX.md` — sinkron sama capabilities.ts tiap adapter
+      (semua = `DOMAIN_KEYS` → ✅ ×5); tambah tabel Webhook (Fase 9) + tautan payload samples
+- [x] `README.md` root — quickstart pakai contoh dari `apps/example` (+ pola capability UI + webhook)
+- [x] Infra release via changeset disiapkan: `.changeset/opensellpy-initial-release.md` (minor
+      @opensellpy/{core,client,adapter-*,testing} + patch example), `pnpm changeset status` OK
+- [ ] First release: BUTUH keputusan & kredensial — semua package masih `private: true` (tidak akan
+      ter-publish), `.npmrc` belum punya publish token. Publish nyata menunggu: un-private package
+      + token registry + `pnpm version-packages && pnpm release`
 
 ---
 

@@ -21,6 +21,22 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
 | inventory | ✅ | ✅ | ✅ | ✅ |
 | logistics | ✅ | ✅ | ✅ | ✅ |
 
+## Webhook — order status push (Fase 9)
+
+Setiap adapter mengekspos `adapter.webhook` (interface `IWebhookHandler` dari `@opensellpy/core`):
+`verifySignature(request)` → `WebhookSignatureResult`, lalu `parse(request)` →
+`WebhookOrderEvent[]` (`order.created` | `order.status_changed`). Webhook bukan bagian
+`capabilities` (DomainKey), jadi dipantau di tabel terpisah.
+
+| Platform | Payload webhook | Header signature | Algoritma verifikasi | Idempotency key |
+|---|---|---|---|---|
+| shopee | push code 3: `{code, data:{ordersn,status,update_time}, shop_id, timestamp}` | `Authorization` | `HMAC-SHA256(partner_key, url\|rawBody)` | `ordersn:status:update_time` |
+| tts | type 1: `{type, tts_notification_id, data:{order_id, order_status}}` | `Authorization` | `HMAC-SHA256(app_secret, app_key+rawBody)` | `tts_notification_id` |
+| lazada | message_type 0: `{data:{order_status, trade_order_id, trade_order_line_id, status_update_time}}` | `Authorization` | `HMAC-SHA256(app_secret, rawBody)` | `line_id:status:status_update_time` |
+| blibli | body flat order-item (`orderStatus` FP/PU/BP/OS/PF/CR/D; tanpa envelope) | `signature` (opsional) | `HMAC-SHA256(key, POST\nmd5(body)\ncontent-type\ndate\ncallbackUrl)` | `orderItemId:orderStatus:timestamp` |
+
+Contoh payload + ketentuan ACK/retry: `docs/webhook-payload-samples/`.
+
 ## Catatan
 
 - Domain yang tidak tersedia di API platform tertentu (mis. sudah dipastikan blibli tidak punya)
