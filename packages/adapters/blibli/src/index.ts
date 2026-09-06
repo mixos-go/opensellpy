@@ -1,4 +1,4 @@
-import type { PlatformAdapter } from '@opensellpy/core'
+import type { PlatformAdapter } from '@mixos-go/opensellpy-core'
 import type { BlibliConnector } from '@mixos-go/bli-bli-sdk'
 import { BLIBLI_CAPABILITIES } from './capabilities.js'
 import { buildBlibliConnector } from './client/blibli.factory.js'

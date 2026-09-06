@@ -1,22 +1,22 @@
-import type { IWebhookHandler, WebhookRequest } from '@opensellpy/core'
+import type { IWebhookHandler, WebhookRequest } from '@mixos-go/opensellpy-core'
 import {
   ShopeeWebhookHandler,
   computeShopeeWebhookSignature,
-} from '@opensellpy/adapter-shopee'
+} from '@mixos-go/opensellpy-adapter-shopee'
 import {
   TiktokWebhookHandler,
   computeTiktokWebhookSignature,
-} from '@opensellpy/adapter-tts'
+} from '@mixos-go/opensellpy-adapter-tts'
 import {
   LazadaWebhookHandler,
   computeLazadaWebhookSignature,
-} from '@opensellpy/adapter-lazada'
+} from '@mixos-go/opensellpy-adapter-lazada'
 import {
   BlibliWebhookHandler,
   buildBlibliWebhookRawString,
   computeBlibliWebhookSignature,
   formatBlibliWibDate,
-} from '@opensellpy/adapter-blibli'
+} from '@mixos-go/opensellpy-adapter-blibli'
 import { renderWebhookEvents } from './render.js'
 
 interface WebhookDemoCase {

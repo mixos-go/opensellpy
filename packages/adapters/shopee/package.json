@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/adapter-shopee",
+  "name": "@mixos-go/opensellpy-adapter-shopee",
   "version": "0.0.0",
   "description": "OpenSellPy — Shopee adapter. Maps @mixos-go/shopee-sdk connector to core domain contracts.",
   "private": true,
@@ -26,10 +26,10 @@
     "@mixos-go/shopee-sdk": "^1.1.0"
   },
   "peerDependencies": {
-    "@opensellpy/core": "workspace:*"
+    "@mixos-go/opensellpy-core": "workspace:*"
   },
   "devDependencies": {
-    "@opensellpy/core": "workspace:*",
+    "@mixos-go/opensellpy-core": "workspace:*",
     "@types/node": "^20.0.0",
     "typescript": "^5.4.0"
   },

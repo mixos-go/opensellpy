@@ -5,7 +5,7 @@ import {
   PlatformAuthError,
   RateLimitError,
   ValidationError,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { ShopeeError } from '@mixos-go/shopee-sdk'
 import { mapShopeeError } from '../errors/shopee-error.mapper.js'
 

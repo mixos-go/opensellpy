@@ -1,4 +1,4 @@
-import type { UpdateStockInput } from '@opensellpy/core'
+import type { UpdateStockInput } from '@mixos-go/opensellpy-core'
 
 /**
  * Body update_stock Shopee: stok item-level dicoret saat `model_id` di-omit.

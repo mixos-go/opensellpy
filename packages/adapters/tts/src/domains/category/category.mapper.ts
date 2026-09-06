@@ -1,4 +1,4 @@
-import type { Category, CategoryAttribute } from '@opensellpy/core'
+import type { Category, CategoryAttribute } from '@mixos-go/opensellpy-core'
 
 /** Bentuk minimal raw kategori dari product categories (TikTok Shop). */
 export interface RawTiktokCategory {

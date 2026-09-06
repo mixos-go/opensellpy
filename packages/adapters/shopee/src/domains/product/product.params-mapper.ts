@@ -1,4 +1,4 @@
-import type { ListProductsParams } from '@opensellpy/core'
+import type { ListProductsParams } from '@mixos-go/opensellpy-core'
 import { toShopeeItemStatus } from './product.status-map.js'
 
 const DEFAULT_LOOKBACK_SECONDS = 15 * 24 * 60 * 60

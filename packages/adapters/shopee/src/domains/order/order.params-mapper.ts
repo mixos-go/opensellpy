@@ -1,4 +1,4 @@
-import type { ListOrdersParams } from '@opensellpy/core'
+import type { ListOrdersParams } from '@mixos-go/opensellpy-core'
 import { toShopeeOrderStatus } from './order.status-map.js'
 
 /** Default jendela waktu: 15 hari ke belakang (maksimum yang didukung Shopee). */

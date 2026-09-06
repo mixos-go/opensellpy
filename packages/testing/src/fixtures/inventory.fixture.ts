@@ -1,4 +1,4 @@
-import type { StockLevel, Warehouse } from '@opensellpy/core'
+import type { StockLevel, Warehouse } from '@mixos-go/opensellpy-core'
 
 export function buildWarehouse(overrides?: Partial<Warehouse>): Warehouse {
   const base: Warehouse = {

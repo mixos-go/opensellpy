@@ -1,5 +1,5 @@
-import { NotFoundError } from '@opensellpy/core'
-import type { IInventoryProvider, StockLevel, UpdateStockInput, Warehouse } from '@opensellpy/core'
+import { NotFoundError } from '@mixos-go/opensellpy-core'
+import type { IInventoryProvider, StockLevel, UpdateStockInput, Warehouse } from '@mixos-go/opensellpy-core'
 import type { MockBackend } from './mock-backend.js'
 
 export class MockInventoryProvider implements IInventoryProvider {

@@ -1,4 +1,4 @@
-import type { Shipment, ShipmentItem, TrackingEvent } from '@opensellpy/core'
+import type { Shipment, ShipmentItem, TrackingEvent } from '@mixos-go/opensellpy-core'
 
 export function buildTrackingEvent(overrides?: Partial<TrackingEvent>): TrackingEvent {
   const base: TrackingEvent = {

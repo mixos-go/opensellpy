@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import type { WebhookRequest } from '@opensellpy/core'
+import type { WebhookRequest } from '@mixos-go/opensellpy-core'
 import { computeTiktokWebhookSignature, TiktokWebhookHandler } from './order.webhook-mapper.js'
 
 const APP_KEY = 'app-key-tts'

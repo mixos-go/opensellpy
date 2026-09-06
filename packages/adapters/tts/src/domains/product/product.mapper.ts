@@ -1,4 +1,4 @@
-import type { Money, Product, ProductVariant } from '@opensellpy/core'
+import type { Money, Product, ProductVariant } from '@mixos-go/opensellpy-core'
 import { fromTiktokProductStatus } from './product.status-map.js'
 
 /** Bentuk minimal raw product dari product detail/search (TikTok Shop). */

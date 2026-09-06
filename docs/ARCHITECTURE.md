@@ -38,14 +38,14 @@ opensellpy/
 │   ├── ADDING_A_PLATFORM.md
 │   └── CAPABILITY_MATRIX.md
 ├── packages/
-│   ├── core/                    @opensellpy/core
-│   ├── client/                  @opensellpy/client
+│   ├── core/                    @mixos-go/opensellpy-core
+│   ├── client/                  @mixos-go/opensellpy-client
 │   ├── adapters/
-│   │   ├── shopee/              @opensellpy/adapter-shopee
-│   │   ├── tts/                  @opensellpy/adapter-tts
-│   │   ├── lazada/              @opensellpy/adapter-lazada
-│   │   └── blibli/              @opensellpy/adapter-blibli
-│   └── testing/                 @opensellpy/testing
+│   │   ├── shopee/              @mixos-go/opensellpy-adapter-shopee
+│   │   ├── tts/                  @mixos-go/opensellpy-adapter-tts
+│   │   ├── lazada/              @mixos-go/opensellpy-adapter-lazada
+│   │   └── blibli/              @mixos-go/opensellpy-adapter-blibli
+│   └── testing/                 @mixos-go/opensellpy-testing
 └── apps/
     └── example/                 <- consumer app contoh / smoke test manual
 ```
@@ -174,7 +174,7 @@ packages/adapters/shopee/src/
   `docs/ADDING_A_DOMAIN.md`). Kalau ternyata platform lain juga butuh domain yang sama, domain
   itu "naik kelas" pindah ke `core` — bukan didiamkan dobel di `extra/` masing-masing adapter.
 - Package `package.json` adapter **wajib** `dependencies: { "@mixos-go/shopee-sdk": "^x" }` dan
-  `peerDependencies: { "@opensellpy/core": "^x" }`. Tidak boleh depend ke adapter platform
+  `peerDependencies: { "@mixos-go/opensellpy-core": "^x" }`. Tidak boleh depend ke adapter platform
   lain, tidak boleh depend ke `client`. OAuth/connector (connect URL, exchange code, auto-refresh
   token) TIDAK diimplement di adapter opensellpy — semua itu hidup di repo SDK marketplace
   (`@mixos-go/*-sdk`) via satu pattern/contract seragam (lihat §11). Adapter opensellpy cukup
@@ -212,7 +212,7 @@ justru supaya tidak ikut merah.
 | `class` | PascalCase | `PlatformAuthError` |
 | `function`/`const` | camelCase | `mapShopeeOrder`, `createShopeeAdapter` |
 | `enum`/union status | PascalCase untuk nama type, string literal lowercase-hyphen untuk value | `type OrderStatus = 'pending' \| 'ready-to-ship'` |
-| Package npm | `@opensellpy/core`, `@opensellpy/adapter-<platform>` | — |
+| Package npm | `@mixos-go/opensellpy-core`, `@mixos-go/opensellpy-adapter-<platform>` | — |
 
 **Suffix file wajib** (biar 1 lihat nama file langsung tahu isinya, tanpa buka):
 
@@ -321,7 +321,7 @@ Contoh payload per platform + skema verifikasi: `docs/webhook-payload-samples/`.
 - [ ] Tidak ada satu pun file di `packages/core/**` yang meng-import dari `packages/adapters/**`.
 - [ ] Tidak ada satu pun file di `packages/adapters/<X>/**` yang meng-import dari
       `packages/adapters/<Y>/**` (X ≠ Y).
-- [ ] `packages/client/package.json` → `dependencies` cuma `@opensellpy/core`.
+- [ ] `packages/client/package.json` → `dependencies` cuma `@mixos-go/opensellpy-core`.
 - [ ] Tidak ada `any` baru yang lolos ESLint (`pnpm lint` harus 0 error).
 
 ## 11. OAuth/connector vs auth internal — di mana ia hidup

@@ -1,4 +1,4 @@
-import type { Money, Order, OrderAddress, OrderItem } from '@opensellpy/core'
+import type { Money, Order, OrderAddress, OrderItem } from '@mixos-go/opensellpy-core'
 import { fromTiktokOrderStatus, fromTiktokOrderStatusToItem } from './order.status-map.js'
 
 /** Bentuk minimal raw order dari order search/detail (TikTok Shop). */

@@ -6,7 +6,7 @@ import {
   PlatformError,
   RateLimitError,
   ValidationError,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { BlibliError } from '../client/request.js'
 import { mapBlibliError } from '../errors/blibli-error.mapper.js'
 

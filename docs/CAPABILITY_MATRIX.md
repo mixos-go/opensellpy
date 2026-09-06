@@ -23,7 +23,7 @@ Platform key: `shopee` | `tts` (TikTok Shop, pasca-merger Tokopedia) | `lazada` 
 
 ## Webhook — order status push (Fase 9)
 
-Setiap adapter mengekspos `adapter.webhook` (interface `IWebhookHandler` dari `@opensellpy/core`):
+Setiap adapter mengekspos `adapter.webhook` (interface `IWebhookHandler` dari `@mixos-go/opensellpy-core`):
 `verifySignature(request)` → `WebhookSignatureResult`, lalu `parse(request)` →
 `WebhookOrderEvent[]` (`order.created` | `order.status_changed`). Webhook bukan bagian
 `capabilities` (DomainKey), jadi dipantau di tabel terpisah.

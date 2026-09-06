@@ -1,4 +1,4 @@
-import type { ProductStatus } from '@opensellpy/core'
+import type { ProductStatus } from '@mixos-go/opensellpy-core'
 
 const TIKTOK_PRODUCT_STATUS: Record<ProductStatus, string> = {
   active: 'ACTIVE',

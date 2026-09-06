@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import type { WebhookRequest } from '@opensellpy/core'
+import type { WebhookRequest } from '@mixos-go/opensellpy-core'
 import { computeLazadaWebhookSignature, LazadaWebhookHandler } from './order.webhook-mapper.js'
 
 const APP_SECRET = 'lazada-app-secret'

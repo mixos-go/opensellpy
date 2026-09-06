@@ -3,7 +3,7 @@ import type {
   Category,
   CategoryAttribute,
   ICategoryProvider,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type {
   BlibliClient,
   BlibliConnector,

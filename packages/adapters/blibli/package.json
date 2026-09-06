@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/adapter-blibli",
+  "name": "@mixos-go/opensellpy-adapter-blibli",
   "version": "0.0.0",
   "description": "OpenSellPy — Blibli adapter. Maps @mixos-go/bli-bli-sdk connector to core domain contracts.",
   "private": true,
@@ -23,10 +23,10 @@
     "@mixos-go/bli-bli-sdk": "^1.1.0"
   },
   "peerDependencies": {
-    "@opensellpy/core": "workspace:*"
+    "@mixos-go/opensellpy-core": "workspace:*"
   },
   "devDependencies": {
-    "@opensellpy/core": "workspace:*",
+    "@mixos-go/opensellpy-core": "workspace:*",
     "typescript": "^5.4.0",
     "@types/node": "^20.0.0"
   },

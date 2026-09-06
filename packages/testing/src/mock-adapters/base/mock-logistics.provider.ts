@@ -1,5 +1,5 @@
-import { NotFoundError } from '@opensellpy/core'
-import type { CreateShipmentInput, ILogisticsProvider, Shipment, ShipmentItem } from '@opensellpy/core'
+import { NotFoundError } from '@mixos-go/opensellpy-core'
+import type { CreateShipmentInput, ILogisticsProvider, Shipment, ShipmentItem } from '@mixos-go/opensellpy-core'
 import { buildShipmentItem, buildTrackingEvent } from '../../fixtures/index.js'
 import type { MockBackend } from './mock-backend.js'
 

@@ -3,7 +3,7 @@ import {
   type Category,
   type CategoryAttribute,
   type ICategoryProvider,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import {
   LazadaProductAPIApi,
   type LazadaClient,

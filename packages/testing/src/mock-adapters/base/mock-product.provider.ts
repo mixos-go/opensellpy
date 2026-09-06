@@ -1,4 +1,4 @@
-import { NotFoundError, ValidationError } from '@opensellpy/core'
+import { NotFoundError, ValidationError } from '@mixos-go/opensellpy-core'
 import type {
   CreateProductInput,
   IProductProvider,
@@ -7,7 +7,7 @@ import type {
   Product,
   ProductStatus,
   UpdateProductInput,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type { MockBackend } from './mock-backend.js'
 
 const PRODUCT_STATUSES: readonly ProductStatus[] = ['active', 'inactive', 'draft']

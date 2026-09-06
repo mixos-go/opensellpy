@@ -1,5 +1,5 @@
-import { NotFoundError } from '@opensellpy/core'
-import type { IOrderProvider, ListOrdersParams, Order, OrderItemStatus, OrderStatus, PaginatedResult } from '@opensellpy/core'
+import { NotFoundError } from '@mixos-go/opensellpy-core'
+import type { IOrderProvider, ListOrdersParams, Order, OrderItemStatus, OrderStatus, PaginatedResult } from '@mixos-go/opensellpy-core'
 import type { MockBackend } from './mock-backend.js'
 
 function itemStatusFor(orderStatus: OrderStatus): OrderItemStatus {

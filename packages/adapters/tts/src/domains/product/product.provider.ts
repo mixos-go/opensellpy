@@ -7,7 +7,7 @@ import {
   type PaginatedResult,
   type Product,
   type UpdateProductInput,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type { ApiCallSpec, TikTokShopConnector } from '@mixos-go/tiktok-shop-sdk'
 import { callRaw } from '../../client/request.js'
 import { mapTiktokError } from '../../errors/tiktok-error.mapper.js'

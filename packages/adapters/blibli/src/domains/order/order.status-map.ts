@@ -1,4 +1,4 @@
-import type { OrderItemStatus, OrderStatus } from '@opensellpy/core'
+import type { OrderItemStatus, OrderStatus } from '@mixos-go/opensellpy-core'
 
 /**
  * Map status filter domain → `filter.orderItemStatuses` Order List V2 Blibli.

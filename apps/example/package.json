@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/example",
+  "name": "@mixos-go/opensellpy-example",
   "version": "0.0.0",
   "description": "OpenSellPy — consumer app contoh / smoke test manual.",
   "private": true,
@@ -12,13 +12,13 @@
     "test": "node -e \"console.log('example: no tests yet')\""
   },
   "dependencies": {
-    "@opensellpy/adapter-blibli": "workspace:*",
-    "@opensellpy/adapter-lazada": "workspace:*",
-    "@opensellpy/adapter-shopee": "workspace:*",
-    "@opensellpy/adapter-tts": "workspace:*",
-    "@opensellpy/client": "workspace:*",
-    "@opensellpy/core": "workspace:*",
-    "@opensellpy/testing": "workspace:*"
+    "@mixos-go/opensellpy-adapter-blibli": "workspace:*",
+    "@mixos-go/opensellpy-adapter-lazada": "workspace:*",
+    "@mixos-go/opensellpy-adapter-shopee": "workspace:*",
+    "@mixos-go/opensellpy-adapter-tts": "workspace:*",
+    "@mixos-go/opensellpy-client": "workspace:*",
+    "@mixos-go/opensellpy-core": "workspace:*",
+    "@mixos-go/opensellpy-testing": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

@@ -8,7 +8,7 @@ import {
   normalizeWebhookHeaders,
   parseWebhookJsonBody,
   safeEqualHex,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { fromTiktokOrderStatus } from './order.status-map.js'
 
 /**

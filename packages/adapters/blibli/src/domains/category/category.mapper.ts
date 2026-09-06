@@ -1,4 +1,4 @@
-import type { Category, CategoryAttribute } from '@opensellpy/core'
+import type { Category, CategoryAttribute } from '@mixos-go/opensellpy-core'
 
 /** Node tree kategori Blibli (recursive). */
 export interface RawBlibliCategory {

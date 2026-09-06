@@ -1,4 +1,4 @@
-import type { Money, Order, OrderAddress, OrderItem } from '@opensellpy/core'
+import type { Money, Order, OrderAddress, OrderItem } from '@mixos-go/opensellpy-core'
 import { fromShopeeOrderStatus, fromShopeeOrderStatusToItem } from './order.status-map.js'
 
 /** Bentuk minimal raw order dari get_order_list / get_order_detail (Shopee). */

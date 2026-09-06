@@ -85,7 +85,7 @@ yang lain).
 
 ## Fase 5 — Adapter TTS (TikTok Shop, pasca-merger Tokopedia)
 
-Pola identik Fase 4, ganti target jadi `tts` (package `@opensellpy/adapter-tts`, konsumsi
+Pola identik Fase 4, ganti target jadi `tts` (package `@mixos-go/opensellpy-adapter-tts`, konsumsi
 connector `@mixos-go/tiktok-shop-sdk`). Bisa mulai paralel begitu Fase 4 struktur
 providernya sudah jadi referensi (tidak perlu nunggu Fase 4 100% selesai, cukup domain order-nya
 selesai sebagai referensi pola).
@@ -182,7 +182,7 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
       di capabilities), stok + shipment + update status (bukti data mock persist)
 - [x] Webhook demo (Fase 9): verifySignature + parse utk ke-4 platform memakai handler REAL
       adapter, request bertanda tangan dibangun di contoh
-- [x] Jadi acuan manual smoke test — jalankan `pnpm --filter @opensellpy/example start` (offline,
+- [x] Jadi acuan manual smoke test — jalankan `pnpm --filter @mixos-go/opensellpy-example start` (offline,
       tanpa kredensial; butuh `build` dulu)
 
 ## Fase 11 — Release & docs finalisasi
@@ -191,10 +191,10 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
       (semua = `DOMAIN_KEYS` → ✅ ×5); tambah tabel Webhook (Fase 9) + tautan payload samples
 - [x] `README.md` root — quickstart pakai contoh dari `apps/example` (+ pola capability UI + webhook)
 - [x] Infra release via changeset disiapkan: `.changeset/opensellpy-initial-release.md` (minor
-      @opensellpy/{core,client,adapter-*,testing} + patch example), `pnpm changeset status` OK
-- [ ] First release: BUTUH keputusan & kredensial — semua package masih `private: true` (tidak akan
-      ter-publish), `.npmrc` belum punya publish token. Publish nyata menunggu: un-private package
-      + token registry + `pnpm version-packages && pnpm release`
+      @mixos-go/opensellpy-{core,client,adapter-*,testing} + patch example), `pnpm changeset status` OK
+- [ ] First release: BUTUH kredensial — semua package masih `private: true` (tidak akan ter-publish),
+      `.npmrc` belum punya publish token. Publish menunggu: un-private package + token registry
+      + `pnpm version-packages && pnpm release`
 
 ---
 

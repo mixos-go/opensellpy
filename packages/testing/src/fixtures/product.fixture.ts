@@ -1,4 +1,4 @@
-import type { Product, ProductVariant } from '@opensellpy/core'
+import type { Product, ProductVariant } from '@mixos-go/opensellpy-core'
 
 export function buildProductVariant(overrides?: Partial<ProductVariant>): ProductVariant {
   const base: ProductVariant = {

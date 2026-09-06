@@ -1,4 +1,4 @@
-import type { ProductStatus } from '@opensellpy/core'
+import type { ProductStatus } from '@mixos-go/opensellpy-core'
 
 const LAZADA_FILTER: Record<ProductStatus, string> = {
   active: 'live',

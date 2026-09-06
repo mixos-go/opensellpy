@@ -1,5 +1,5 @@
-import { NotFoundError } from '@opensellpy/core'
-import type { Category, CategoryAttribute, ICategoryProvider } from '@opensellpy/core'
+import { NotFoundError } from '@mixos-go/opensellpy-core'
+import type { Category, CategoryAttribute, ICategoryProvider } from '@mixos-go/opensellpy-core'
 import type { MockBackend } from './mock-backend.js'
 
 function flattenCategories(categories: Category[], acc: Category[] = []): Category[] {

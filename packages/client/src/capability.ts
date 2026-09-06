@@ -1,4 +1,4 @@
-import type { DomainKey, PlatformAdapter } from '@opensellpy/core'
+import type { DomainKey, PlatformAdapter } from '@mixos-go/opensellpy-core'
 
 export function getCapabilities(adapter: PlatformAdapter): readonly DomainKey[] {
   return adapter.capabilities

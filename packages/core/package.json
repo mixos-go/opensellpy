@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/core",
+  "name": "@mixos-go/opensellpy-core",
   "version": "0.0.0",
   "description": "OpenSellPy — domain contracts & shared types. Platform-free core.",
   "private": true,

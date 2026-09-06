@@ -6,7 +6,7 @@ import {
   ValidationError,
   type PlatformErrorOptions,
   type PlatformKey,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { LazadaError } from '../client/request.js'
 
 /** Fallback konkret utk error Lazada yang tidak terklasifikasi. */

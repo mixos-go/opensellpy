@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/client",
+  "name": "@mixos-go/opensellpy-client",
   "version": "0.0.0",
   "description": "OpenSellPy — OmniClient orchestrator + plugin registry. Depends only on core.",
   "private": true,
@@ -20,7 +20,7 @@
     "test": "node --test 'dist/**/*.test.js'"
   },
   "dependencies": {
-    "@opensellpy/core": "workspace:*"
+    "@mixos-go/opensellpy-core": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

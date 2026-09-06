@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/adapter-lazada",
+  "name": "@mixos-go/opensellpy-adapter-lazada",
   "version": "0.0.0",
   "description": "OpenSellPy — Lazada adapter. Maps @mixos-go/lazada-sdk connector to core domain contracts.",
   "private": true,
@@ -23,10 +23,10 @@
     "@mixos-go/lazada-sdk": "^1.1.0"
   },
   "peerDependencies": {
-    "@opensellpy/core": "workspace:*"
+    "@mixos-go/opensellpy-core": "workspace:*"
   },
   "devDependencies": {
-    "@opensellpy/core": "workspace:*",
+    "@mixos-go/opensellpy-core": "workspace:*",
     "typescript": "^5.4.0",
     "@types/node": "^20.0.0"
   },

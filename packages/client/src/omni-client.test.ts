@@ -9,7 +9,7 @@ import type {
   IProductProvider,
   PlatformAdapter,
   PlatformKey,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { getCapabilities, supports } from './capability.js'
 import { OmniClient } from './omni-client.js'
 import { PlatformNotRegisteredError } from './platform-not-registered.error.js'

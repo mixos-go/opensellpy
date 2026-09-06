@@ -72,7 +72,7 @@ folder. File ini fokus ke *cara kerja* dan *checklist praktis*.
 1. Buat packages/adapters/<platform-baru>/ dengan struktur sama persis seperti packages/adapters/shopee/
    (lihat docs/ARCHITECTURE.md §5)
 2. package.json: dependencies ke raw sdk platform tsb (`@mixos-go/<platform>-sdk`), peerDependencies
-   ke @opensellpy/core. OAuth/connector lifecycle (connect/exchange/refresh token) TIDAK dibuat di
+   ke @mixos-go/opensellpy-core. OAuth/connector lifecycle (connect/exchange/refresh token) TIDAK dibuat di
    sini — itu hidup di repo SDK marketplace via contract/pattern seragam. Adapter cukup konsumsi
    connector tsb lalu map hasilnya ke kontrak domain `core`.
 3. Implement domain SATU PER SATU, urutan prioritas: order -> product -> category -> inventory
@@ -102,8 +102,8 @@ folder. File ini fokus ke *cara kerja* dan *checklist praktis*.
 
 ```bash
 pnpm install                        # install semua workspace
-pnpm --filter @opensellpy/core build
-pnpm --filter @opensellpy/adapter-shopee test
+pnpm --filter @mixos-go/opensellpy-core build
+pnpm --filter @mixos-go/opensellpy-adapter-shopee test
 pnpm typecheck                      # semua package
 pnpm lint                           # semua package
 pnpm changeset                      # wajib sebelum PR yang mengubah public API package apa pun

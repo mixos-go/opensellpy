@@ -8,7 +8,7 @@ import {
   type PaginatedResult,
   type Product,
   type UpdateProductInput,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type {
   BlibliClient,
   BlibliConnector,

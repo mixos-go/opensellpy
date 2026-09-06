@@ -1,4 +1,4 @@
-import type { StockLevel } from '@opensellpy/core'
+import type { StockLevel } from '@mixos-go/opensellpy-core'
 
 export interface RawTiktokSkuStock {
   id?: string

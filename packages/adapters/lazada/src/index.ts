@@ -1,4 +1,4 @@
-import type { PlatformAdapter } from '@opensellpy/core'
+import type { PlatformAdapter } from '@mixos-go/opensellpy-core'
 import type { LazadaConnector } from '@mixos-go/lazada-sdk'
 import { LAZADA_CAPABILITIES } from './capabilities.js'
 import { buildLazadaConnector } from './client/lazada.factory.js'

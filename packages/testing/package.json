@@ -1,5 +1,5 @@
 {
-  "name": "@opensellpy/testing",
+  "name": "@mixos-go/opensellpy-testing",
   "version": "0.0.0",
   "description": "OpenSellPy — fixtures + mock adapters for tests. Must NOT depend on any @mixos-go SDK.",
   "private": true,
@@ -20,8 +20,8 @@
     "test": "node --test 'dist/**/*.test.js'"
   },
   "dependencies": {
-    "@opensellpy/client": "workspace:*",
-    "@opensellpy/core": "workspace:*"
+    "@mixos-go/opensellpy-client": "workspace:*",
+    "@mixos-go/opensellpy-core": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

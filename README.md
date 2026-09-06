@@ -10,14 +10,14 @@ ke beberapa marketplace (Shopee, TikTok Shop, Lazada, Blibli) lewat kontrak doma
 ```
 opensellpy/
 ├── packages/
-│   ├── core/          @opensellpy/core      — kontrak domain (jenis + interface), bebas platform
-│   ├── client/        @opensellpy/client    — orchestrator/registry adapter
+│   ├── core/          @mixos-go/opensellpy-core      — kontrak domain (jenis + interface), bebas platform
+│   ├── client/        @mixos-go/opensellpy-client    — orchestrator/registry adapter
 │   ├── adapters/
-│   │   ├── shopee/    @opensellpy/adapter-shopee
-│   │   ├── tts/       @opensellpy/adapter-tts        (TikTok Shop, pasca-merger Tokopedia)
-│   │   ├── lazada/    @opensellpy/adapter-lazada
-│   │   └── blibli/    @opensellpy/adapter-blibli
-│   └── testing/       @opensellpy/testing    — fixtures + mock adapters
+│   │   ├── shopee/    @mixos-go/opensellpy-adapter-shopee
+│   │   ├── tts/       @mixos-go/opensellpy-adapter-tts        (TikTok Shop, pasca-merger Tokopedia)
+│   │   ├── lazada/    @mixos-go/opensellpy-adapter-lazada
+│   │   └── blibli/    @mixos-go/opensellpy-adapter-blibli
+│   └── testing/       @mixos-go/opensellpy-testing    — fixtures + mock adapters
 └── apps/
     └── example/       consumer contoh / smoke test
 ```
@@ -33,12 +33,12 @@ pnpm test
 
 ## Contoh penggunaan (consumer)
 
-Register adapter (di sini mock dari `@opensellpy/testing` — offine, tanpa kredensial), lalu
+Register adapter (di sini mock dari `@mixos-go/opensellpy-testing` — offine, tanpa kredensial), lalu
 arahkan call ke domain contract yang seragam lintas platform:
 
 ```ts
-import { OmniClient } from '@opensellpy/client'
-import { createMockShopeeAdapter, createMockTtsAdapter } from '@opensellpy/testing'
+import { OmniClient } from '@mixos-go/opensellpy-client'
+import { createMockShopeeAdapter, createMockTtsAdapter } from '@mixos-go/opensellpy-testing'
 
 const client = new OmniClient()
 client.register(createMockShopeeAdapter())
@@ -60,7 +60,7 @@ if (client.platform('tts').capabilities.includes('inventory')) {
 Smoke test end-to-end (menjalankan skenario di `apps/example`):
 
 ```bash
-pnpm --filter @opensellpy/example start
+pnpm --filter @mixos-go/opensellpy-example start
 ```
 
 Webhook order-status: setiap adapter mengekspos `adapter.webhook` — verify signature lalu parse

@@ -1,4 +1,4 @@
-import type { PlatformAdapter, PlatformKey } from '@opensellpy/core'
+import type { PlatformAdapter, PlatformKey } from '@mixos-go/opensellpy-core'
 import { PluginRegistry } from './plugin-registry.js'
 import { PlatformNotRegisteredError } from './platform-not-registered.error.js'
 

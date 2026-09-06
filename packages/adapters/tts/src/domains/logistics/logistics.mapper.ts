@@ -1,4 +1,4 @@
-import type { Shipment, ShipmentStatus, TrackingEvent } from '@opensellpy/core'
+import type { Shipment, ShipmentStatus, TrackingEvent } from '@mixos-go/opensellpy-core'
 
 /** Bentuk minimal raw tracking dari order tracking (TikTok Shop). */
 export interface RawTiktokTracking {

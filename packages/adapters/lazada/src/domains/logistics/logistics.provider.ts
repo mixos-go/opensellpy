@@ -6,7 +6,7 @@ import {
   type Shipment,
   type ShipmentStatus,
   type TrackingEvent,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import {
   LazadaFulfillmentAPIApi,
   LazadaOrderAPIApi,

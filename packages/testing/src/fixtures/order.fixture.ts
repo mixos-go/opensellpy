@@ -1,4 +1,4 @@
-import type { Order, OrderAddress, OrderItem } from '@opensellpy/core'
+import type { Order, OrderAddress, OrderItem } from '@mixos-go/opensellpy-core'
 
 export function buildOrderAddress(overrides?: Partial<OrderAddress>): OrderAddress {
   const base: OrderAddress = {

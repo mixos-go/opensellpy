@@ -1,4 +1,4 @@
-import type { PlatformAdapter } from '@opensellpy/core'
+import type { PlatformAdapter } from '@mixos-go/opensellpy-core'
 import type { TikTokShopConnector } from '@mixos-go/tiktok-shop-sdk'
 import { TTS_CAPABILITIES } from './capabilities.js'
 import { buildTiktokShopConnector } from './client/tts.factory.js'

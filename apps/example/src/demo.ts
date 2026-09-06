@@ -1,6 +1,6 @@
-import { OmniClient, supports } from '@opensellpy/client'
-import type { DomainKey } from '@opensellpy/core'
-import { createMockShopeeAdapter, createMockTtsAdapter } from '@opensellpy/testing'
+import { OmniClient, supports } from '@mixos-go/opensellpy-client'
+import type { DomainKey } from '@mixos-go/opensellpy-core'
+import { createMockShopeeAdapter, createMockTtsAdapter } from '@mixos-go/opensellpy-testing'
 import { renderCapabilities, renderOrders, renderShipment } from './render.js'
 import { runWebhookDemo } from './webhook-demo.js'
 
@@ -59,7 +59,7 @@ async function demoPlatform(adapter: ReturnType<typeof createMockShopeeAdapter>)
     lines.push(`  PROMO: modul promosi TIDAK aktif di ${platform} — menu disembunyikan`)
   }
 
-  // Inventory (core) — contoh penggunaan helper `supports` dari @opensellpy/client.
+  // Inventory (core) — contoh penggunaan helper `supports` dari @mixos-go/opensellpy-client.
   if (supports(adapter, 'inventory')) {
     const firstOrder = result.items[0]
     const sku = firstOrder?.items[0]?.sku

@@ -3,7 +3,7 @@ import {
   type Category,
   type CategoryAttribute,
   type ICategoryProvider,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type { ApiCallSpec, ShopeeConnector } from '@mixos-go/shopee-sdk'
 import { callRaw } from '../../client/request.js'
 import { mapShopeeError } from '../../errors/shopee-error.mapper.js'

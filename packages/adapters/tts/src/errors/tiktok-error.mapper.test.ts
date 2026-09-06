@@ -5,7 +5,7 @@ import {
   PlatformAuthError,
   RateLimitError,
   ValidationError,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { TikTokError } from '@mixos-go/tiktok-shop-sdk'
 import { mapTiktokError } from './tiktok-error.mapper.js'
 

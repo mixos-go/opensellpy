@@ -1,4 +1,4 @@
-import type { OrderItemStatus, OrderStatus } from '@opensellpy/core'
+import type { OrderItemStatus, OrderStatus } from '@mixos-go/opensellpy-core'
 
 const LAZADA_STATUS: Record<OrderStatus, string> = {
   pending: 'unpaid',

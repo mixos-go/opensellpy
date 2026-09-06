@@ -1,4 +1,4 @@
-import type { Money, Product, ProductVariant } from '@opensellpy/core'
+import type { Money, Product, ProductVariant } from '@mixos-go/opensellpy-core'
 import { fromLazadaProductStatus } from './product.status-map.js'
 
 /** Bentuk minimal raw product dari product/get (Lazada). */

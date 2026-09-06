@@ -1,4 +1,4 @@
-import type { Money, Order, OrderAddress, OrderItem } from '@opensellpy/core'
+import type { Money, Order, OrderAddress, OrderItem } from '@mixos-go/opensellpy-core'
 import { fromLazadaOrderStatus, fromLazadaOrderStatusToItem, pickLazadaOrderStatus } from './order.status-map.js'
 
 /** Bentuk minimal raw order dari orders/get & order/get (Lazada). */

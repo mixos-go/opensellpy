@@ -1,4 +1,4 @@
-import type { PlatformKey } from '@opensellpy/core'
+import type { PlatformKey } from '@mixos-go/opensellpy-core'
 
 export class PlatformNotRegisteredError extends Error {
   readonly platform: PlatformKey

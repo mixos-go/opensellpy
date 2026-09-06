@@ -1,4 +1,4 @@
-import type { Money, Product, ProductVariant } from '@opensellpy/core'
+import type { Money, Product, ProductVariant } from '@mixos-go/opensellpy-core'
 import { fromShopeeItemStatus } from './product.status-map.js'
 
 /** Bentuk minimal raw product dari get_item_base_info (Shopee). */

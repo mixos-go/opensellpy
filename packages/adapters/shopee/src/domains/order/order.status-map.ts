@@ -1,4 +1,4 @@
-import type { OrderItemStatus, OrderStatus } from '@opensellpy/core'
+import type { OrderItemStatus, OrderStatus } from '@mixos-go/opensellpy-core'
 
 const SHOPEE_STATUS_BY_OURS: Partial<Record<OrderStatus, string>> = {
   pending: 'UNPAID',

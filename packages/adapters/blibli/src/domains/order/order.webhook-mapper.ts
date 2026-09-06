@@ -9,7 +9,7 @@ import {
   normalizeWebhookHeaders,
   parseWebhookJsonBody,
   safeEqualHex,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import { fromBlibliOrderStatus } from './order.status-map.js'
 
 const WIB_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const

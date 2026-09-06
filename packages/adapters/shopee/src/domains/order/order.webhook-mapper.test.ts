@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import type { WebhookRequest } from '@opensellpy/core'
+import type { WebhookRequest } from '@mixos-go/opensellpy-core'
 import { computeShopeeWebhookSignature, ShopeeWebhookHandler } from './order.webhook-mapper.js'
 
 const PARTNER_KEY = 'secret-partner-key'

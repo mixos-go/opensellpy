@@ -6,7 +6,7 @@ import {
   type Order,
   type OrderStatus,
   type PaginatedResult,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import {
   LazadaOrderAPIApi,
   type LazadaClient,

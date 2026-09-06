@@ -1,4 +1,4 @@
-import type { ListProductsParams } from '@opensellpy/core'
+import type { ListProductsParams } from '@mixos-go/opensellpy-core'
 import { toBlibliProductStateFilter } from './product.status-map.js'
 
 /**

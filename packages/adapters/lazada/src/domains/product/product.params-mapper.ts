@@ -1,4 +1,4 @@
-import type { ListProductsParams } from '@opensellpy/core'
+import type { ListProductsParams } from '@mixos-go/opensellpy-core'
 import { toLazadaProductFilter } from './product.status-map.js'
 
 const DEFAULT_LOOKBACK_MS = 15 * 24 * 60 * 60 * 1000

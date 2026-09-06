@@ -1,4 +1,4 @@
-import type { ProductStatus } from '@opensellpy/core'
+import type { ProductStatus } from '@mixos-go/opensellpy-core'
 
 /** Map filter status domain → `filter.state` Product List V3 Blibli (`draft` tidak bisa difilter). */
 export function toBlibliProductStateFilter(status: ProductStatus | undefined): string | undefined {

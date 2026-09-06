@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { OmniClient } from '@opensellpy/client'
+import { OmniClient } from '@mixos-go/opensellpy-client'
 import { createMockBlibliAdapter, createMockShopeeAdapter } from './index.js'
 
 test('multi-platform: register dua mock adapter, telusuri urutan order yang diberi tugas', async () => {

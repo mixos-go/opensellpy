@@ -54,9 +54,8 @@ export default tseslint.config(
         "error",
         {
           patterns: [
-            { group: ["@mixos-go/*"], message: "core tidak boleh import SDK platform manapun" },
-            { group: ["@opensellpy/adapter-*"], message: "core tidak boleh import dari packages/adapters" },
-            { group: ["@opensellpy/client"], message: "core tidak boleh import dari packages/client" },
+            { group: ["@mixos-go/*-sdk"], message: "core tidak boleh import SDK platform manapun" },
+            { group: ["@mixos-go/opensellpy-*"], message: "core tidak boleh import dari packages lain (harus via relative)" },
             { group: ["**/adapters/**"], message: "core tidak boleh import dari packages/adapters" },
             { group: ["**/client/**"], message: "core tidak boleh import dari packages/client" },
           ],
@@ -72,7 +71,7 @@ export default tseslint.config(
         "error",
         {
           patterns: [
-            { group: ["@opensellpy/adapter-*"], message: "client tidak boleh import dari packages/adapters (harus DI/register dari luar)" },
+            { group: ["@mixos-go/opensellpy-adapter-*"], message: "client tidak boleh import dari packages/adapters (harus DI/register dari luar)" },
             { group: ["**/adapters/**"], message: "client tidak boleh import dari packages/adapters" },
           ],
         },
@@ -87,7 +86,7 @@ export default tseslint.config(
         "error",
         {
           patterns: [
-            { group: ["@opensellpy/adapter-*"], message: "satu adapter tidak boleh import adapter lain" },
+            { group: ["@mixos-go/opensellpy-adapter-*"], message: "satu adapter tidak boleh import adapter lain" },
             { group: ["**/adapters/*/"], message: "satu adapter tidak boleh import adapter lain" },
           ],
         },

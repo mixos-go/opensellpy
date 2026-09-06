@@ -1,4 +1,4 @@
-import type { Money, Product, ProductVariant } from '@opensellpy/core'
+import type { Money, Product, ProductVariant } from '@mixos-go/opensellpy-core'
 import { fromBlibliProductState } from './product.status-map.js'
 
 /** Content Product List V3 (satu baris per product L3). */

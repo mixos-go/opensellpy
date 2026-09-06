@@ -1,4 +1,4 @@
-import type { PlatformAdapter, PlatformKey } from '@opensellpy/core'
+import type { PlatformAdapter, PlatformKey } from '@mixos-go/opensellpy-core'
 
 export class PluginRegistry {
   private readonly adapters = new Map<PlatformKey, PlatformAdapter>()

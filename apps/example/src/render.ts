@@ -1,4 +1,4 @@
-import type { Order, Shipment, WebhookOrderEvent } from '@opensellpy/core'
+import type { Order, Shipment, WebhookOrderEvent } from '@mixos-go/opensellpy-core'
 
 function money(amount: number | undefined, currency: string | undefined): string {
   return `${amount ?? 0} ${currency ?? ''}`.trim()

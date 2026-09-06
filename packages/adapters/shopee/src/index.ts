@@ -1,4 +1,4 @@
-import type { PlatformAdapter } from '@opensellpy/core'
+import type { PlatformAdapter } from '@mixos-go/opensellpy-core'
 import type { ShopeeConnector } from '@mixos-go/shopee-sdk'
 import { SHOPEE_CAPABILITIES } from './capabilities.js'
 import { buildShopeeConnector } from './client/shopee.factory.js'

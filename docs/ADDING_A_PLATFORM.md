@@ -15,7 +15,7 @@ Baca dulu `docs/ARCHITECTURE.md` §5 dan `docs/ADDING_A_DOMAIN.md` sebelum mulai
 1. Buat packages/adapters/<platform-baru>/ dengan struktur sama persis seperti packages/adapters/shopee/
 2. package.json:
    - dependencies: raw sdk platform tsb (@mixos-go/<platform>-sdk)
-   - peerDependencies: @opensellpy/core
+   - peerDependencies: @mixos-go/opensellpy-core
    - TIDAK boleh depend ke adapter platform lain, TIDAK boleh depend ke client
 3. Implement domain SATU PER SATU, urutan prioritas:
    order -> product -> category -> inventory -> logistics -> (domain lain sesuai kebutuhan)

@@ -1,4 +1,4 @@
-import type { ListOrdersParams } from '@opensellpy/core'
+import type { ListOrdersParams } from '@mixos-go/opensellpy-core'
 import { toBlibliOrderStatuses } from './order.status-map.js'
 
 /**

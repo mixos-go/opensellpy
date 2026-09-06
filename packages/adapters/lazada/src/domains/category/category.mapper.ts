@@ -1,4 +1,4 @@
-import type { Category, CategoryAttribute } from '@opensellpy/core'
+import type { Category, CategoryAttribute } from '@mixos-go/opensellpy-core'
 
 /** Bentuk minimal raw kategori dari category/tree/get (Lazada, sudah nested). */
 export interface RawLazadaCategory {

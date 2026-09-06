@@ -1,4 +1,4 @@
-import type { Category, CategoryAttribute, Order, PlatformKey, Product, Shipment, StockLevel, Warehouse } from '@opensellpy/core'
+import type { Category, CategoryAttribute, Order, PlatformKey, Product, Shipment, StockLevel, Warehouse } from '@mixos-go/opensellpy-core'
 import { buildShipmentItem, buildTrackingEvent } from '../../fixtures/index.js'
 import type { MockSeed } from './seed.js'
 

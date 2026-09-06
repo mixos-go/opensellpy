@@ -7,7 +7,7 @@ import type {
   Shipment,
   StockLevel,
   Warehouse,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import {
   buildCategory,
   buildCategoryAttribute,

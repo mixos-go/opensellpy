@@ -1,5 +1,5 @@
-import { DOMAIN_KEYS } from '@opensellpy/core'
-import type { DomainKey, PlatformAdapter, PlatformKey } from '@opensellpy/core'
+import { DOMAIN_KEYS } from '@mixos-go/opensellpy-core'
+import type { DomainKey, PlatformAdapter, PlatformKey } from '@mixos-go/opensellpy-core'
 import type { MockSeed } from './seed.js'
 import { buildMockSeed } from './seed.js'
 import { MockBackend } from './mock-backend.js'

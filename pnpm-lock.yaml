@@ -32,25 +32,25 @@ importers:
 
   apps/example:
     dependencies:
-      '@opensellpy/adapter-blibli':
+      '@mixos-go/opensellpy-adapter-blibli':
         specifier: workspace:*
         version: link:../../packages/adapters/blibli
-      '@opensellpy/adapter-lazada':
+      '@mixos-go/opensellpy-adapter-lazada':
         specifier: workspace:*
         version: link:../../packages/adapters/lazada
-      '@opensellpy/adapter-shopee':
+      '@mixos-go/opensellpy-adapter-shopee':
         specifier: workspace:*
         version: link:../../packages/adapters/shopee
-      '@opensellpy/adapter-tts':
+      '@mixos-go/opensellpy-adapter-tts':
         specifier: workspace:*
         version: link:../../packages/adapters/tts
-      '@opensellpy/client':
+      '@mixos-go/opensellpy-client':
         specifier: workspace:*
         version: link:../../packages/client
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@opensellpy/testing':
+      '@mixos-go/opensellpy-testing':
         specifier: workspace:*
         version: link:../../packages/testing
     devDependencies:
@@ -67,7 +67,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../../core
       '@types/node':
@@ -83,7 +83,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../../core
       '@types/node':
@@ -99,7 +99,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../../core
       '@types/node':
@@ -115,7 +115,7 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
     devDependencies:
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../../core
       '@types/node':
@@ -127,7 +127,7 @@ importers:
 
   packages/client:
     dependencies:
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -149,10 +149,10 @@ importers:
 
   packages/testing:
     dependencies:
-      '@opensellpy/client':
+      '@mixos-go/opensellpy-client':
         specifier: workspace:*
         version: link:../client
-      '@opensellpy/core':
+      '@mixos-go/opensellpy-core':
         specifier: workspace:*
         version: link:../core
     devDependencies:

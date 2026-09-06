@@ -6,7 +6,7 @@ import {
   type StockLevel,
   type UpdateStockInput,
   type Warehouse,
-} from '@opensellpy/core'
+} from '@mixos-go/opensellpy-core'
 import type {
   BlibliClient,
   BlibliConnector,

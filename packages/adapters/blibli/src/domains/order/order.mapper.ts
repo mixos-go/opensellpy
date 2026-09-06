@@ -1,4 +1,4 @@
-import type { Money, Order, OrderAddress, OrderItem } from '@opensellpy/core'
+import type { Money, Order, OrderAddress, OrderItem } from '@mixos-go/opensellpy-core'
 import {
   fromBlibliOrderStatus,
   fromBlibliOrderStatusToItem,

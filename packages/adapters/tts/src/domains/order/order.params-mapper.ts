@@ -1,4 +1,4 @@
-import type { ListOrdersParams } from '@opensellpy/core'
+import type { ListOrdersParams } from '@mixos-go/opensellpy-core'
 import { toTiktokOrderStatus } from './order.status-map.js'
 
 const DEFAULT_LOOKBACK_SECONDS = 15 * 24 * 60 * 60
