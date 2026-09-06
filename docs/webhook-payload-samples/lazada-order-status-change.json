@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "source": "https://open.lazada.com/apps/doc/doc?docId=120168&nodeId=29526 (Push Mechanism) + real capture gist", 
+    "notes": "Envelope Lazada Push Mechanism (LPM). `message_type` 0 = forward/order, reverse = return/refund/cancel. `data` objek (bukan string). Signature: header `Authorization` = hex lowercase HMAC-SHA256(app_secret, rawBody). ACK: HTTP 200 (secepat mungkin, docs menyebut < 500ms); retry tiap 30 menit s/d 12x. order_status lowercase: unpaid, pending, ready_to_ship, shipped, delivered, canceled, returned, failed.",
+    "payload_verbatim": true
+  },
+  "seller_id": 400606482963,
+  "message_type": 0,
+  "data": {
+    "order_status": "pending",
+    "trade_order_id": 1250905272558269,
+    "trade_order_line_id": 1250905273458269,
+    "status_update_time": 1694620790,
+    "buyer_id": 410404458269
+  },
+  "timestamp": 1694620800,
+  "site": "lazada_id"
+}

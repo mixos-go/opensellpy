@@ -5,6 +5,7 @@ import type { IProductProvider } from '../domains/product/product.contract.js'
 import type { ICategoryProvider } from '../domains/category/category.contract.js'
 import type { IInventoryProvider } from '../domains/inventory/inventory.contract.js'
 import type { ILogisticsProvider } from '../domains/logistics/logistics.contract.js'
+import type { IWebhookHandler } from '../webhook/webhook.contract.js'
 
 /**
  * PlatformAdapter is the surface a single marketplace exposes to `client`.
@@ -17,5 +18,7 @@ export interface PlatformAdapter<Extra = unknown> {
   category: ICategoryProvider
   inventory: IInventoryProvider
   logistics: ILogisticsProvider
+  /** Webhook handler platform (opsional — hubungi konfigurasi webhook). */
+  webhook?: IWebhookHandler
   extra?: Extra
 }

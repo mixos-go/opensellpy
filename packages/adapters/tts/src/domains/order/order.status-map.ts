@@ -29,6 +29,7 @@ export function fromTiktokOrderStatus(raw: string | undefined): OrderStatus {
     case 'COMPLETED':
       return 'delivered'
     case 'CANCELLED':
+    case 'CANCEL':
     case 'VOIDED':
     case 'EXPIRED':
     case 'CHARGED_BACK':

@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "source": "https://seller-api.blibli.com/docs services/79/operations/delivered_order (verbatim)",
+    "notes": "Body callback webhook Blibli FLAT (tanpa envelope requestId/content) — TIDAK sama dengan response API REST. Header tiap callback: Accept, Content-Type, requestId, requestTime (ms), opsional token (OAUTH) & signature (Webhook Signature Key). Event operation path dipilih partner saat subscribe (contoh /deliveredOrder/regular) sehingga event type harus dianut dari isi body (orderStatus), bukan path. orderStatus: FP=new order, PU=ready for pickup, BP=BOPIS, OS=out of stock, PF=partial fulfillment, CR=customer request, D=delivered. Signature (opsional): HMAC-SHA256(key, rawString = `${method}\n${md5hex(body)}\n${contentType}\n${date}\n${callbackUrl}`). ACK: HTTP 200; retry 1x/jam s.d. 7x (guide lain bilang 24x; idempoten wajib).",
+    "payload_verbatim": true
+  },
+  "blibliSku": "TOQ-15126-00298-00001",
+  "quantity": 7,
+  "orderId": "12104566234",
+  "initialQuantity": 10,
+  "orderItemId": "121072766613",
+  "packageId": "10025702",
+  "orderStatus": "D",
+  "instantPickup": true,
+  "logisticProductCode": "RegularCode",
+  "pickupPointCode": "PP-3003332",
+  "logisticProductName": "Regular",
+  "blibliSkuName": "Sunglasses Police",
+  "autoCancelTimeStamp": "2019-07-25 00:00",
+  "sellerSku": "SAMS-SKU-01",
+  "orderDate": 1539684887059,
+  "timestamp": 1537149303013,
+  "storeCode": "TOQ-15126"
+}

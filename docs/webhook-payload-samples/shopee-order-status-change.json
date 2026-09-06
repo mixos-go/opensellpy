@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "source": "https://open.shopee.com/push-mechanism/1 (order_status_push)",
+    "notes": "Envelope Shopee Push Mechanism untuk Order Status Update (code 3). data adalah objek (bukan string). Signature: header `Authorization` = hex lowercase HMAC-SHA256(partner_key, `${callbackUrl}|${rawBody}`). ACK: HTTP 2xx body kosong dalam 3 detik; dedup oleh `ordersn`+`status`+`update_time` (delivery bisa berulang; Sequence Guaranteed: No).",
+    "retry_seconds": "300s, 1800s, 10800s (maks 3 retry)",
+    "payload_verbatim": true
+  },
+  "data": {
+    "ordersn": "220810QSK8S7BX",
+    "status": "PROCESSED",
+    "completed_scenario": "",
+    "items": [],
+    "update_time": 1660123127
+  },
+  "shop_id": 727720655,
+  "code": 3,
+  "timestamp": 1660123127
+}

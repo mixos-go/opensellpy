@@ -8,6 +8,7 @@ import { TiktokInventoryProvider } from './domains/inventory/inventory.provider.
 import { TiktokLogisticsProvider } from './domains/logistics/logistics.provider.js'
 import { TiktokOrderProvider } from './domains/order/order.provider.js'
 import { TiktokProductProvider } from './domains/product/product.provider.js'
+import { TiktokWebhookHandler } from './domains/order/order.webhook-mapper.js'
 
 export class TtsAdapter implements PlatformAdapter<TikTokShopConnector> {
   readonly platform = 'tts' as const
@@ -17,6 +18,7 @@ export class TtsAdapter implements PlatformAdapter<TikTokShopConnector> {
   readonly category: TiktokCategoryProvider
   readonly inventory: TiktokInventoryProvider
   readonly logistics: TiktokLogisticsProvider
+  readonly webhook: TiktokWebhookHandler
   readonly extra: TikTokShopConnector
 
   constructor(config: TtsAdapterConfig) {
@@ -27,6 +29,10 @@ export class TtsAdapter implements PlatformAdapter<TikTokShopConnector> {
     this.category = new TiktokCategoryProvider(connector, config.shopId)
     this.inventory = new TiktokInventoryProvider(connector, config.shopId)
     this.logistics = new TiktokLogisticsProvider(connector, config.shopId)
+    this.webhook = new TiktokWebhookHandler({
+      appKey: config.credentials.app_key,
+      appSecret: config.credentials.app_secret,
+    })
   }
 }
 
@@ -50,3 +56,5 @@ export {
   fromTiktokLogisticsStatus,
   fromTiktokTracking,
 } from './domains/index.js'
+export { TiktokWebhookHandler, computeTiktokWebhookSignature } from './domains/order/order.webhook-mapper.js'
+export type { TiktokWebhookOptions } from './domains/order/order.webhook-mapper.js'

@@ -302,11 +302,18 @@ terkait (bukan pakai `any` dari SDK-nya).
 Untuk webhook, flow serupa tapi arahnya masuk:
 
 ```
-1. Webhook raw payload masuk dari Shopee -> ditangani di
-   adapter-shopee/src/domains/order (atau folder webhook terpisah kalau sudah kompleks)
-2. Mapper ubah raw webhook payload -> DomainEvent (dari core/events)
-3. Consumer subscribe ke satu event bus/handler yang sama, tidak peduli platform asal
+1. Webhook raw payload masuk dari platform -> `adapter.webhook.verifySignature(req)`
+   (kontrak `IWebhookHandler` dari core; HMAC hex per platform: Shopee url|body,
+   TikTok app_key+body, Lazada body, Blibli MD5-based opsional)
+2. `adapter.webhook.parse(req)` normalisasi raw payload -> `WebhookOrderEvent[]`
+   (order.created / order.status_changed, dari core/webhook) di
+   adapter-<X>/src/domains/order/order.webhook-mapper.ts
+3. Aplikasi meng-ACK HTTP 2xx; idempotensi via `eventId`
+   (dedup: tts_notification_id TTS, ordersn+status+update_time Shopee, dst.)
+4. Consumer subscribe ke satu event handler yang sama, tidak peduli platform asal
 ```
+
+Contoh payload per platform + skema verifikasi: `docs/webhook-payload-samples/`.
 
 ## 10. Checklist review — dependency direction (jalankan sebelum merge)
 

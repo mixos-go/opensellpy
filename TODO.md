@@ -163,12 +163,17 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
 
 ## Fase 9 — Webhook / event normalization
 
-- [ ] Desain `IWebhookHandler` contract di `core` (belum ada di Fase 1/2 — perlu riset dulu
-      bentuk payload webhook tiap platform sebelum finalisasi kontrak, taruh sebagai task riset
-      terpisah sebelum implement)
-- [ ] Riset: kumpulkan contoh payload webhook order-status-changed dari 4 platform, taruh di
-      `docs/webhook-payload-samples/`
-- [ ] Implement `order.webhook-mapper.ts` per adapter setelah kontrak final
+- [x] Desain `IWebhookHandler` contract di `core` (`webhook/webhook.contract.ts`:
+      `WebhookRequest`, `WebhookOrderEvent` created/status_changed, `verifySignature` +
+      `parse`), ditambah `webhook?` opsional di `PlatformAdapter`; helper runtime
+      (`computeHmacHex`, `normalizeWebhookHeaders`, `parseWebhookJsonBody`, `epochToIso`)
+- [x] Riset + contoh payload webhook order-status 4 platform di `docs/webhook-payload-samples/`
+      (shopee/tts/lazada sample real, blibli verbatim dari docs + rekonstruksi new_order)
+- [x] Implement `order.webhook-mapper.ts` per adapter + wiring `adapter.webhook` + unit test:
+      Shopee (code 3, HMAC url|body), TikTok (type 1, HMAC app_key+body, dedup
+      `tts_notification_id`), Lazada (message_type 0, HMAC body), Blibli (flat body, signature
+      opsional MD5 based, status FP→created)
+- [x] Workspace hijau — tes: shopee 29, tts 29, lazada 24, blibli 40, testing 24, client 5 (total 151)
 
 ## Fase 10 — apps/example (consumer contoh)
 

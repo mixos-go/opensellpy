@@ -61,3 +61,14 @@ export type {
   CreateShipmentInput,
   ILogisticsProvider,
 } from './domains/logistics/index.js'
+
+export type {
+  WebhookRequest,
+  WebhookSignatureResult,
+  WebhookOrderCreated,
+  WebhookOrderStatusChanged,
+  WebhookOrderEvent,
+  IWebhookHandler,
+} from './webhook/index.js'
+export { computeHmacHex, computeMd5Hex, safeEqualHex } from './webhook/index.js'
+export { normalizeWebhookHeaders, parseWebhookJsonBody, epochToIso } from './webhook/index.js'

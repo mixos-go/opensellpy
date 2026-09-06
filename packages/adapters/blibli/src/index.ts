@@ -8,6 +8,7 @@ import { BlibliInventoryProvider } from './domains/inventory/inventory.provider.
 import { BlibliLogisticsProvider } from './domains/logistics/logistics.provider.js'
 import { BlibliOrderProvider } from './domains/order/order.provider.js'
 import { BlibliProductProvider } from './domains/product/product.provider.js'
+import { BlibliWebhookHandler } from './domains/order/order.webhook-mapper.js'
 
 export class BlibliAdapter implements PlatformAdapter<BlibliConnector> {
   readonly platform = 'blibli' as const
@@ -17,6 +18,7 @@ export class BlibliAdapter implements PlatformAdapter<BlibliConnector> {
   readonly category: BlibliCategoryProvider
   readonly inventory: BlibliInventoryProvider
   readonly logistics: BlibliLogisticsProvider
+  readonly webhook: BlibliWebhookHandler
   readonly extra: BlibliConnector
 
   constructor(config: BlibliAdapterConfig) {
@@ -30,6 +32,9 @@ export class BlibliAdapter implements PlatformAdapter<BlibliConnector> {
     this.category = new BlibliCategoryProvider(connector, config.shopId, config)
     this.inventory = new BlibliInventoryProvider(connector, config.shopId, config)
     this.logistics = new BlibliLogisticsProvider(connector, config.shopId, config)
+    this.webhook = new BlibliWebhookHandler(
+      config.credentials.signatureKey === undefined ? {} : { signatureKey: config.credentials.signatureKey },
+    )
   }
 }
 
@@ -56,3 +61,10 @@ export {
   toBlibliOrderStatuses,
   toBlibliProductStateFilter,
 } from './domains/index.js'
+export {
+  BlibliWebhookHandler,
+  buildBlibliWebhookRawString,
+  computeBlibliWebhookSignature,
+  formatBlibliWibDate,
+} from './domains/order/order.webhook-mapper.js'
+export type { BlibliWebhookOptions } from './domains/order/order.webhook-mapper.js'

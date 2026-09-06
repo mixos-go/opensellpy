@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "source": "https://partner.tiktokshop.com/docv2/page/1-order-status-change + tts-webhooks-overview",
+    "notes": "Envelope webhook TikTok Shop (v2/current). `type: 1` = order status change (event_type ORDER_STATUS_CHANGE cuma konsep subscription, tidak ada di payload). order_status enum webhook: UNPAID, ON_HOLD, AWAITING_SHIPMENT, AWAITING_COLLECTION, CANCEL, IN_TRANSIT, DELIVERED, COMPLETED. Signature: header `Authorization` = hex lowercase HMAC-SHA256(app_secret, `${app_key}${rawBody}`); kompak tanpa spasi. ACK: HTTP 200 body kosong < 3 dtk; dedup by `tts_notification_id` (at-least-once, 4 retry: +2m/+30m/+3j/+12j).",
+    "payload_verbatim": true
+  },
+  "type": 1,
+  "tts_notification_id": "7327112393057371910",
+  "shop_id": "7494049642642441621",
+  "timestamp": 1644412885,
+  "data": {
+    "order_id": "576486316948490001",
+    "order_status": "UNPAID",
+    "is_on_hold_order": false,
+    "update_time": 1644412885
+  }
+}

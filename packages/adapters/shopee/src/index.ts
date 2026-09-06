@@ -8,6 +8,7 @@ import { ShopeeInventoryProvider } from './domains/inventory/inventory.provider.
 import { ShopeeLogisticsProvider } from './domains/logistics/logistics.provider.js'
 import { ShopeeOrderProvider } from './domains/order/order.provider.js'
 import { ShopeeProductProvider } from './domains/product/product.provider.js'
+import { ShopeeWebhookHandler } from './domains/order/order.webhook-mapper.js'
 
 export class ShopeeAdapter implements PlatformAdapter<ShopeeConnector> {
   readonly platform = 'shopee' as const
@@ -17,6 +18,7 @@ export class ShopeeAdapter implements PlatformAdapter<ShopeeConnector> {
   readonly category: ShopeeCategoryProvider
   readonly inventory: ShopeeInventoryProvider
   readonly logistics: ShopeeLogisticsProvider
+  readonly webhook: ShopeeWebhookHandler
   readonly extra: ShopeeConnector
 
   constructor(config: ShopeeAdapterConfig) {
@@ -27,6 +29,7 @@ export class ShopeeAdapter implements PlatformAdapter<ShopeeConnector> {
     this.category = new ShopeeCategoryProvider(connector, config.shopId)
     this.inventory = new ShopeeInventoryProvider(connector, config.shopId)
     this.logistics = new ShopeeLogisticsProvider(connector, config.shopId)
+    this.webhook = new ShopeeWebhookHandler({ partnerKey: config.credentials.partner_key })
   }
 }
 
@@ -45,3 +48,5 @@ export {
   fromShopeeStockLevel,
   fromShopeeTrackingInfo,
 } from './domains/index.js'
+export { ShopeeWebhookHandler, computeShopeeWebhookSignature } from './domains/order/order.webhook-mapper.js'
+export type { ShopeeWebhookOptions } from './domains/order/order.webhook-mapper.js'

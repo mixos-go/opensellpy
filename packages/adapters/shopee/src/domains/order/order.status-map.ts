@@ -20,15 +20,18 @@ export function fromShopeeOrderStatus(raw: string | undefined): OrderStatus {
     case 'UNPAID':
       return 'pending'
     case 'READY_TO_SHIP':
+    case 'RETRY_SHIP':
     case 'PROCESSED':
       return 'ready-to-ship'
     case 'SHIPPED':
       return 'shipped'
+    case 'TO_CONFIRM_RECEIVE':
     case 'COMPLETED':
       return 'delivered'
     case 'IN_CANCEL':
     case 'CANCELLED':
       return 'cancelled'
+    case 'TO_RETURN':
     case 'RETURNED':
       return 'returned'
     default:
