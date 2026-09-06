@@ -17,9 +17,10 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src --max-warnings 0",
-    "test": "node -e \"console.log('testing: no tests yet')\""
+    "test": "node --test 'dist/**/*.test.js'"
   },
   "dependencies": {
+    "@opensellpy/client": "workspace:*",
     "@opensellpy/core": "workspace:*"
   },
   "devDependencies": {

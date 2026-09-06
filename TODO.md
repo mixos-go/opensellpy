@@ -153,13 +153,13 @@ pastikan `region` per connector benar (default `singapore`, Indonesia = `indones
 
 Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkret.
 
-- [ ] `testing/src/fixtures/order.fixture.ts`, `product.fixture.ts`, dst — factory function
+- [x] `testing/src/fixtures/order.fixture.ts`, `product.fixture.ts`, dst — factory function
       `build<Domain>(overrides?)`
-- [ ] `testing/src/mock-adapters/mock-shopee.adapter.ts` — implement `PlatformAdapter` pakai
+- [x] `testing/src/mock-adapters/mock-shopee.adapter.ts` — implement `PlatformAdapter` pakai
       fixture, tanpa depend ke `@mixos-go/*-sdk`
-- [ ] `testing/src/mock-adapters/mock-tts.adapter.ts`
-- [ ] `testing/src/mock-adapters/mock-lazada.adapter.ts`
-- [ ] `testing/src/mock-adapters/mock-blibli.adapter.ts`
+- [x] `testing/src/mock-adapters/mock-tts.adapter.ts`
+- [x] `testing/src/mock-adapters/mock-lazada.adapter.ts`
+- [x] `testing/src/mock-adapters/mock-blibli.adapter.ts
 
 ## Fase 9 — Webhook / event normalization
 

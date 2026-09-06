@@ -131,6 +131,9 @@ importers:
 
   packages/testing:
     dependencies:
+      '@opensellpy/client':
+        specifier: workspace:*
+        version: link:../client
       '@opensellpy/core':
         specifier: workspace:*
         version: link:../core
