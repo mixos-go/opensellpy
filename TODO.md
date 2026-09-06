@@ -192,9 +192,11 @@ Depend ke minimal 1 adapter selesai (Fase 4) supaya tahu bentuk kontraknya konkr
 - [x] `README.md` root — quickstart pakai contoh dari `apps/example` (+ pola capability UI + webhook)
 - [x] Infra release via changeset disiapkan: `.changeset/opensellpy-initial-release.md` (minor
       @mixos-go/opensellpy-{core,client,adapter-*,testing} + patch example), `pnpm changeset status` OK
-- [ ] First release: BUTUH kredensial — semua package masih `private: true` (tidak akan ter-publish),
-      `.npmrc` belum punya publish token. Publish menunggu: un-private package + token registry
-      + `pnpm version-packages && pnpm release`
+- [x] Scope rename → `@mixos-go/opensellpy-*` (cocok GitHub Packages org `mixos-go`): semua import,
+      eslint no-restricted-imports, docs, lockfile; build/lint/test hijau (151 pass)
+- [x] First release DONE — `changeset version` (core/client/testing `0.1.0`, adapter `1.0.0`,
+      example `0.0.1`), publishConfig access restricted, `pnpm release` → 7 package TER-PUBLISH ke
+      npm.pkg.github.com + tags `@mixos-go/opensellpy-*@<ver>` (lihat git log `e5da1ed`, `dec70a0`)
 
 ---
 
