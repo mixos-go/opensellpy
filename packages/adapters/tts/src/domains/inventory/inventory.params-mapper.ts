@@ -1,10 +1,14 @@
 /**
- * Body update inventory TikTok: `skus: [{ id: sku_id, stock }]`.
- * Stok TikTok bersifat SKU-level (agregat lintas lokasi); tidak ada
- * per-warehouse di flow ini.
+ * Body update inventory TikTok (`/product/202309/products/{product_id}/inventory/update`):
+ * `skus: [{ id, inventory: [{ warehouse_id, quantity }] }]` — stok di-set per warehouse
+ * (absolut). Wajib ada blok `inventory`; tanpanya API menolak ("Inventory of Skus[0]...").
  */
-export function toTiktokUpdateInventoryBody(skuId: string, quantity: number): Record<string, unknown> {
+export function toTiktokUpdateInventoryBody(
+  skuId: string,
+  warehouseId: string,
+  quantity: number,
+): Record<string, unknown> {
   return {
-    skus: [{ id: skuId, stock: quantity }],
+    skus: [{ id: skuId, inventory: [{ warehouse_id: warehouseId, quantity }] }],
   }
 }

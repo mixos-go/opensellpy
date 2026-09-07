@@ -1,5 +1,6 @@
 import {
   NotFoundError,
+  ValidationError,
   type IInventoryProvider,
   type StockLevel,
   type UpdateStockInput,
@@ -134,10 +135,26 @@ export class TiktokInventoryProvider implements IInventoryProvider {
           platform: 'tts',
         })
       }
+      // Stok TikTok per-warehouse: wajib kirim `inventory[].{warehouse_id,quantity}`.
+      // Default warehouseId = warehouse tempat stok SKU sudah berada (inventory[0]),
+      // bukan asal-asalan warehouse pertama (Return warehouse ditolak API utk inventori).
+      const warehouseId =
+        input.warehouseId !== undefined && input.warehouseId !== ''
+          ? input.warehouseId
+          : (found.rawSku.inventory?.[0]?.warehouse_id ?? (await this.listWarehouses())[0]?.id)
+      if (warehouseId === undefined || warehouseId === '') {
+        throw new ValidationError(
+          'TikTok butuh warehouse untuk update stok; tidak ada warehouse terdaftar.',
+          { platform: 'tts' },
+        )
+      }
       await callRaw<Record<string, never>>(
         client,
         UPDATE_INVENTORY_SPEC,
-        { product_id: found.productId, ...toTiktokUpdateInventoryBody(found.skuId, input.quantity) },
+        {
+          product_id: found.productId,
+          ...toTiktokUpdateInventoryBody(found.skuId, warehouseId, input.quantity),
+        },
       )
       return this.getStock(input.sku)
     } catch (err: unknown) {

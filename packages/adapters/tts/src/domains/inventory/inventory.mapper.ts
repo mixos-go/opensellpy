@@ -4,6 +4,10 @@ export interface RawTiktokSkuStock {
   id?: string
   seller_sku?: string
   quantity?: number
+  inventory?: Array<{
+    warehouse_id?: string
+    quantity?: number
+  }>
   price?: {
     sale_price?: string
     currency?: string
@@ -16,7 +20,13 @@ export function fromTiktokStockLevel(
   product: { update_time?: number },
   rawSku: RawTiktokSkuStock,
 ): StockLevel {
-  const quantity = rawSku.quantity ?? 0
+  // Stok TikTok per-warehouse di `skus[].inventory[].quantity` (tidak ada
+  // field `quantity` di level SKU). Agregat seluruh warehouse.
+  const perWarehouse = rawSku.inventory ?? []
+  const quantity =
+    perWarehouse.length > 0
+      ? perWarehouse.reduce((acc, w) => acc + (w.quantity ?? 0), 0)
+      : (rawSku.quantity ?? 0)
   const updatedAt =
     product.update_time === undefined
       ? new Date(0).toISOString()

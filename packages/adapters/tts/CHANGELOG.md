@@ -1,5 +1,21 @@
 # @mixos-go/opensellpy-adapter-tts
 
+## 1.0.3
+
+### Patch Changes
+
+- fix(tts): inventory live-shape TikTok — stok per-warehouse
+
+  - `getStock`/`updateStock` (findSku): setelah SKU ter-fill di produk sandbox terverifikasi live,
+    `fromTiktokStockLevel` baca `skus[].inventory[].quantity` (agregat lintas warehouse),
+    bukan field `quantity` yang tidak pernah ada → sebelumnya selalu 0.
+  - `updateStock`: body `/product/202309/products/{id}/inventory/update` sekarang
+    `skus:[{ id, inventory:[{ warehouse_id, quantity }] }]` (wajib ada blok `inventory`;
+    tanpa itu API menolak "Inventory of Skus[0] is required"). Default warehouse = warehouse
+    tempat stok SKU berada (`inventory[0].warehouse_id`), bukan warehouse pertama dari list
+    (Return warehouse ditolak API utk inventori).
+  - Terverifikasi live sandbox: getStock 1000 → updateStock(5) → getStock 5 (write+read roundtrip).
+
 ## 1.0.2
 
 ### Patch Changes
