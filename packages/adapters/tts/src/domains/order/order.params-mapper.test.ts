@@ -19,3 +19,9 @@ test('toTiktokSearchOrdersParams status failed → order_status tidak didukung, 
   const params = toTiktokSearchOrdersParams({ page: 1, limit: 10, status: 'failed' })
   assert.equal(params['order_status'], undefined)
 })
+
+test('toTiktokSearchOrdersParams override window updatedFrom/updatedTo', () => {
+  const params = toTiktokSearchOrdersParams({ page: 1, limit: 10, updatedFrom: 1700000000, updatedTo: 1700000500 })
+  assert.equal(params['create_time_ge'], 1700000000)
+  assert.equal(params['create_time_lt'], 1700000500)
+})

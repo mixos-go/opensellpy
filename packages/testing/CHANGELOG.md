@@ -1,5 +1,13 @@
 # @mixos-go/opensellpy-testing
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @mixos-go/opensellpy-core@0.1.1
+  - @mixos-go/opensellpy-client@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

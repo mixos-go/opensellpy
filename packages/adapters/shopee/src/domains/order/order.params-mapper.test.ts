@@ -19,3 +19,9 @@ test('toShopeeListOrdersParams status failed → order_status tidak didukung, di
   const params = toShopeeListOrdersParams({ page: 1, limit: 10, status: 'failed' })
   assert.equal(params['order_status'], undefined)
 })
+
+test('toShopeeListOrdersParams override window updatedFrom/updatedTo', () => {
+  const params = toShopeeListOrdersParams({ page: 1, limit: 10, updatedFrom: 1700000000, updatedTo: 1700000500 })
+  assert.equal(params['time_from'], 1700000000)
+  assert.equal(params['time_to'], 1700000500)
+})

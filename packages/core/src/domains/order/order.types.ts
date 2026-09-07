@@ -45,4 +45,8 @@ export interface Order {
 
 export interface ListOrdersParams extends PaginationParams {
   status?: OrderStatus
+  /** Epoch detik — window awal berdasarkan create/update order. Opsional; tanpa nilai, platform memakai default (Shopee: 15 hari maksimum didukung API). */
+  updatedFrom?: number
+  /** Epoch detik — window akhir. Opsional; tanpa nilai, platform memakai "sekarang". */
+  updatedTo?: number
 }

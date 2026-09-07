@@ -1,18 +1,16 @@
 import type { ListProductsParams } from '@mixos-go/opensellpy-core'
 import { toTiktokProductStatus } from './product.status-map.js'
 
-const DEFAULT_LOOKBACK_SECONDS = 15 * 24 * 60 * 60
-
 /**
- * Map ListProductsParams → body/products search TikTok. `page_size` + window
- * waktu selalu dikirim; `status` di-omit saat tidak dispesifikasi (default
- * `ACTIVE` dipakai bila perlu, lihat provider). `page_token` tidak dilanjutkan.
+ * Map ListProductsParams → body/products search TikTok. `page_size` + `status`
+ * di-set bila diberikan; window `create_time` di-omit kecuali caller berikan
+ * `updatedFrom`/`updatedTo` (hindari item lama tersembunyi). `page_token`
+ * tidak dilanjutkan.
  */
 export function toTiktokSearchProductsBody(params: ListProductsParams): Record<string, unknown> {
-  const out: Record<string, unknown> = {
-    create_time_ge: Math.floor(Date.now() / 1000) - DEFAULT_LOOKBACK_SECONDS,
-    create_time_le: Math.floor(Date.now() / 1000),
-  }
+  const out: Record<string, unknown> = {}
+  if (params.updatedFrom !== undefined) out['create_time_ge'] = params.updatedFrom
+  if (params.updatedTo !== undefined) out['create_time_le'] = params.updatedTo
   if (params.status !== undefined) out['status'] = toTiktokProductStatus(params.status)
   return out
 }

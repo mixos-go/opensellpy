@@ -49,10 +49,10 @@ test('fromTiktokProduct tanpa field opsional → default aman', () => {
   assert.equal(product.variants.length, 0)
 })
 
-test('toTiktokSearchProductsBody menambahkan window waktu + status optional', () => {
+test('toTiktokSearchProductsBody default tanpa window waktu + status optional', () => {
   const body = toTiktokSearchProductsBody({ page: 1, limit: 10 })
-  assert.equal(typeof body['create_time_ge'], 'number')
-  assert.equal(typeof body['create_time_le'], 'number')
+  assert.equal('create_time_ge' in body, false)
+  assert.equal('create_time_le' in body, false)
   assert.equal(body['status'], undefined)
   const withStatus = toTiktokSearchProductsBody({ page: 1, limit: 10, status: 'draft' })
   assert.equal(withStatus['status'], 'DRAFT')

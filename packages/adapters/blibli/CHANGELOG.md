@@ -1,5 +1,12 @@
 # @mixos-go/opensellpy-adapter-blibli
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @mixos-go/opensellpy-core@0.1.1
+
 ## 1.0.0
 
 ### Minor Changes

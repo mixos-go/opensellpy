@@ -13,12 +13,14 @@ const MAX_LOOKBACK_SECONDS = 15 * 24 * 60 * 60
  * sebagaimana adanya (`cursor` di-omit) supaya tidak menembak URL invalid.
  */
 export function toShopeeListOrdersParams(params: ListOrdersParams): Record<string, unknown> {
+  const now = Math.floor(Date.now() / 1000)
   const shopeeParams: Record<string, unknown> = {
     time_range_field: 'create_time',
-    time_from: Math.floor(Date.now() / 1000) - MAX_LOOKBACK_SECONDS,
-    time_to: Math.floor(Date.now() / 1000),
+    time_to: params.updatedTo ?? now,
     page_size: params.limit,
   }
+  // Shopee mewajibkan window; default = 15 hari (maksimum yang didukung API).
+  shopeeParams['time_from'] = params.updatedFrom ?? now - MAX_LOOKBACK_SECONDS
   if (params.status !== undefined) {
     const orderStatus = toShopeeOrderStatus(params.status)
     if (orderStatus !== undefined) shopeeParams['order_status'] = orderStatus

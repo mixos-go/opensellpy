@@ -25,6 +25,10 @@ export interface Product {
 
 export interface ListProductsParams extends PaginationParams {
   status?: ProductStatus
+  /** Epoch detik — window berdasarkan last-updated (per platform). Opsional; tanpa nilai, platform mengambil semua item tanpa window waktu. */
+  updatedFrom?: number
+  /** Epoch detik — batas atas window last-updated. Opsional; diperkenankan hanya bila platform mendukung (Lazada product: tidak mendukung `to`, diabaikan). */
+  updatedTo?: number
 }
 
 export interface CreateProductInput {

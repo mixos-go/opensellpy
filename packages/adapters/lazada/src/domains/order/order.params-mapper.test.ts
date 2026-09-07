@@ -15,3 +15,9 @@ test('toLazadaListOrdersParams tanpa status → status tidak dikirim', () => {
   const params = toLazadaListOrdersParams({ page: 1, limit: 10 })
   assert.equal(params['status'], undefined)
 })
+
+test('toLazadaListOrdersParams override window updatedFrom/updatedTo', () => {
+  const params = toLazadaListOrdersParams({ page: 1, limit: 10, updatedFrom: 1700000000, updatedTo: 1700000500 })
+  assert.equal(params['created_after'], new Date(1700000000 * 1000).toISOString())
+  assert.equal(params['created_before'], new Date(1700000500 * 1000).toISOString())
+})

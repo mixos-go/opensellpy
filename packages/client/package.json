@@ -1,6 +1,6 @@
 {
   "name": "@mixos-go/opensellpy-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenSellPy — OmniClient orchestrator + plugin registry. Depends only on core.",
   "publishConfig": {
     "access": "restricted"

@@ -1,6 +1,6 @@
 {
   "name": "@mixos-go/opensellpy-testing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenSellPy — fixtures + mock adapters for tests. Must NOT depend on any @mixos-go SDK.",
   "publishConfig": {
     "access": "restricted"
