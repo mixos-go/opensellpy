@@ -69,12 +69,12 @@ interface RawProductSearchResponse {
   products?: Array<{ id?: string }>
 }
 
-interface RawProductDetail {
-  product?: {
-    id?: string
-    update_time?: number
-    skus?: RawTiktokSkuStock[]
-  }
+/** Detail product TikTok (GET /product/202309/products/{id}) — `data` langsung product (flat). */
+interface RawProductDetailFlat {
+  id?: string
+  update_time?: number
+  skus?: RawTiktokSkuStock[]
+  [key: string]: unknown
 }
 
 interface RawFoundSku {
@@ -155,11 +155,11 @@ export class TiktokInventoryProvider implements IInventoryProvider {
       .map((p) => p.id)
       .filter((id): id is string => id !== undefined && id !== '')
     for (const productId of ids) {
-      const detail = await callRaw<RawProductDetail>(client, PRODUCT_DETAIL_SPEC, {
+      // GET /product/202309/products/{product_id} → `data` LANGSUNG product (flat).
+      const product = await callRaw<RawProductDetailFlat>(client, PRODUCT_DETAIL_SPEC, {
         product_id: productId,
       })
-      const product = detail.product
-      if (product === undefined) continue
+      if (product === undefined || product.id === undefined) continue
       const rawSku = (product.skus ?? []).find((s) => s.seller_sku === sku)
       if (rawSku === undefined) continue
       return { productId, skuId: rawSku.id ?? '', product, rawSku }

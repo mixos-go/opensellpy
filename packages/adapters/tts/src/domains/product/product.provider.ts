@@ -79,10 +79,6 @@ interface RawProductSearchResponse {
   next_page_token?: string
 }
 
-interface RawProductDetailResponse {
-  product?: RawTiktokProduct
-}
-
 interface RawCreateProductResponse {
   product_id?: string
 }
@@ -136,11 +132,12 @@ export class TiktokProductProvider implements IProductProvider {
   async getProduct(productId: string): Promise<Product> {
     try {
       const client = await this.connector.getClient(this.shopId)
-      const res = await callRaw<RawProductDetailResponse>(client, PRODUCT_DETAIL_SPEC, {
+      // GET /product/202309/products/{product_id} → `data` LANGSUNG product (flat),
+      // bukan { product: {...} }. callRaw sudah unwrap `.data`.
+      const raw = await callRaw<RawTiktokProduct>(client, PRODUCT_DETAIL_SPEC, {
         product_id: productId,
       })
-      const raw = res.product
-      if (raw === undefined) {
+      if (raw === undefined || raw.id === undefined) {
         throw new NotFoundError(`Produk ${productId} tidak ditemukan di TikTok Shop`, { platform: 'tts' })
       }
       return fromTiktokProduct(raw)

@@ -14,8 +14,14 @@ export interface TtsAdapterConfig {
   shopId: string
   /** Override base URL (default dokumen resmi TikTok Shop OpenAPI). */
   baseUrl?: string
+  /** Override host authorize (default ROW `https://services.tiktokshop.com`). */
+  authorizeBaseUrl?: string
+  /** Override host token (default `https://auth.tiktok-shops.com`). */
+  tokenBaseUrl?: string
   /** Requested scopes/service ids (cross-border) → query `service_ids` (join ';'). */
   serviceIds?: string[]
+  /** `shop_cipher` preseed (bila sudah tahu dari Get Authorized Shops / Shop Code). */
+  shopCipher?: string
   /** Authorized shop type: `0` = seller, `1` = authorized user. */
   shopType?: number
   /** Kategori token (opsional). */

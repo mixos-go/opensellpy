@@ -1,5 +1,12 @@
 # @mixos-go/opensellpy-example
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @mixos-go/opensellpy-adapter-tts@1.0.2
+
 ## 0.0.3
 
 ### Patch Changes

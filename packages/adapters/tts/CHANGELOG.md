@@ -1,5 +1,11 @@
 # @mixos-go/opensellpy-adapter-tts
 
+## 1.0.2
+
+### Patch Changes
+
+- fix(tts): parsing product detail flat — GET `/product/202309/products/{product_id}` balikin `data` LANGSUNG product (bukan `{product}`), terverifikasi live sandbox. `product.getProduct` & `inventory.getStock`/`updateStock` (findSku) sebelumnya menganggap ada wrapper `product:` → NotFoundError walaupun data ada. Deps `@mixos-go/tiktok-shop-sdk` naik ke `^1.2.0` (OAuth v2 host + sign atas final path utk path-param API).
+
 ## 1.0.1
 
 ### Patch Changes

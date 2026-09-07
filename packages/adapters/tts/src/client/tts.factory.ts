@@ -11,7 +11,10 @@ export function buildTiktokShopConnector(config: TtsAdapterConfig): TikTokShopCo
     redirectUri: config.redirectUri,
     store: config.store,
     ...(config.baseUrl !== undefined ? { baseUrl: config.baseUrl } : {}),
+    ...(config.authorizeBaseUrl !== undefined ? { authorizeBaseUrl: config.authorizeBaseUrl } : {}),
+    ...(config.tokenBaseUrl !== undefined ? { tokenBaseUrl: config.tokenBaseUrl } : {}),
     ...(config.serviceIds !== undefined ? { serviceIds: config.serviceIds } : {}),
+    ...(config.shopCipher !== undefined ? { shopCipher: config.shopCipher } : {}),
     ...(config.shopType !== undefined ? { shopType: config.shopType } : {}),
     ...(config.category !== undefined ? { category: config.category } : {}),
     ...(config.refreshThresholdMs !== undefined
