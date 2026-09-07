@@ -26,6 +26,9 @@ export function mapLazadaError(err: unknown, platform: PlatformKey): PlatformErr
   if (err instanceof LazadaError) {
     return mapLazadaSdkError(err, platform)
   }
+  if (err instanceof PlatformError) {
+    return err
+  }
   const message = err instanceof Error ? err.message : String(err)
   return new LazadaUnclassifiedError(message, { platform, cause: err })
 }

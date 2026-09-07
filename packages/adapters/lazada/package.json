@@ -1,6 +1,6 @@
 {
   "name": "@mixos-go/opensellpy-adapter-lazada",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OpenSellPy — Lazada adapter. Maps @mixos-go/lazada-sdk connector to core domain contracts.",
   "publishConfig": {
     "access": "restricted"

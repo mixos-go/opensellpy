@@ -3,11 +3,18 @@ import { test } from 'node:test'
 import {
   NotFoundError,
   PlatformAuthError,
+  PlatformError,
   RateLimitError,
   ValidationError,
 } from '@mixos-go/opensellpy-core'
 import { LazadaError } from '@mixos-go/lazada-sdk'
 import { mapLazadaError } from './lazada-error.mapper.js'
+
+test('mapLazadaError meneruskan PlatformError apa adanya', () => {
+  const expected = new NotFoundError('Order 999 tidak ditemukan di Lazada', { platform: 'lazada' })
+  assert.equal(mapLazadaError(expected, 'lazada'), expected)
+  assert.ok(expected instanceof PlatformError)
+})
 
 test('mapLazadaError mengklasifikasikan error token → PlatformAuthError', () => {
   const mapped = mapLazadaError(new LazadaError('Autentikasi gagal', { code: 'IllegalAccessToken' }), 'lazada')

@@ -1,5 +1,11 @@
 # @mixos-go/opensellpy-adapter-lazada
 
+## 1.0.2
+
+### Patch Changes
+
+- mapLazadaError meneruskan PlatformError apa adanya (NotFoundError/ValidationError dari provider tidak lagi dibungkus LazadaUnclassifiedError)
+
 ## 1.0.1
 
 ### Patch Changes
