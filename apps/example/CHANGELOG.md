@@ -1,5 +1,12 @@
 # @mixos-go/opensellpy-example
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @mixos-go/opensellpy-adapter-shopee@1.0.1
+
 ## 0.0.1
 
 ### Patch Changes

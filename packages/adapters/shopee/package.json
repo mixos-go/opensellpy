@@ -1,6 +1,6 @@
 {
   "name": "@mixos-go/opensellpy-adapter-shopee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "OpenSellPy — Shopee adapter. Maps @mixos-go/shopee-sdk connector to core domain contracts.",
   "publishConfig": {
     "access": "restricted"

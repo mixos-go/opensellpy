@@ -1,5 +1,11 @@
 # @mixos-go/opensellpy-adapter-shopee
 
+## 1.0.1
+
+### Patch Changes
+
+- Fix uji live sandbox: get_order_list/detail kini mengirim `response_optional_fields` yang benar (list tanpa item_list/total_amount karena sandbox menolaknya; detail lengkap) sehingga total/items/alamat ter-populate.
+
 ## 1.0.0
 
 ### Minor Changes

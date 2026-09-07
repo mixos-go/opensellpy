@@ -37,6 +37,13 @@ const CANCEL_ORDER_SPEC: ApiCallSpec = {
   scope: 'shop',
 }
 
+// Detail optional (item_list, total_amount, alamat, time) hanya dikembalikan
+// Shopee kalau diminta lewat `response_optional_fields`.
+// get_order_list TIDAK mendukung `item_list`/`total_amount` (sandbox menolak;
+// hanya order_sn+order_status yang bawaan) — item & total ambil via detail.
+const ORDER_LIST_OPTIONAL_FIELDS: string[] = []
+const ORDER_DETAIL_OPTIONAL_FIELDS = ['item_list', 'total_amount', 'currency', 'recipient_address', 'order_status']
+
 const SHIP_ORDER_SPEC: ApiCallSpec = {
   method: 'POST',
   path: '/api/v2/logistics/ship_order',
@@ -72,7 +79,12 @@ export class ShopeeOrderProvider implements IOrderProvider {
     try {
       const client = await this.connector.getClient(this.shopId)
       const shopeeParams = toShopeeListOrdersParams(params)
-      const res = await callRaw<RawOrderListResponse>(client, ORDER_LIST_SPEC, shopeeParams)
+      const res = await callRaw<RawOrderListResponse>(client, ORDER_LIST_SPEC, {
+        ...shopeeParams,
+        ...(ORDER_LIST_OPTIONAL_FIELDS.length > 0
+          ? { response_optional_fields: ORDER_LIST_OPTIONAL_FIELDS }
+          : {}),
+      })
       const items = (res.order_list ?? []).map(fromShopeeOrder)
       return {
         items,
@@ -91,6 +103,7 @@ export class ShopeeOrderProvider implements IOrderProvider {
       const client = await this.connector.getClient(this.shopId)
       const res = await callRaw<RawOrderDetailResponse>(client, ORDER_DETAIL_SPEC, {
         order_sn_list: [orderId],
+        response_optional_fields: ORDER_DETAIL_OPTIONAL_FIELDS,
       })
       const raw = res.order_list?.[0]
       if (raw === undefined) {
