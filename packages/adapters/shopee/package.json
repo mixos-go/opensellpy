@@ -1,6 +1,10 @@
 {
   "name": "@mixos-go/opensellpy-adapter-shopee",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mixos-go/opensellpy"
+  },
   "description": "OpenSellPy — Shopee adapter. Maps @mixos-go/shopee-sdk connector to core domain contracts.",
   "publishConfig": {
     "access": "public"

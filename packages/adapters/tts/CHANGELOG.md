@@ -1,5 +1,13 @@
 # @mixos-go/opensellpy-adapter-tts
 
+## 1.0.5
+
+### Patch Changes
+
+- link repository field agar package terhubung ke repo public (opensellpy)
+- Updated dependencies
+  - @mixos-go/opensellpy-core@0.1.3
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @mixos-go/opensellpy-adapter-blibli
 
+## 1.0.3
+
+### Patch Changes
+
+- link repository field agar package terhubung ke repo public (opensellpy)
+- Updated dependencies
+  - @mixos-go/opensellpy-core@0.1.3
+
 ## 1.0.2
 
 ### Patch Changes

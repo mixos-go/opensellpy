@@ -1,6 +1,10 @@
 {
   "name": "@mixos-go/opensellpy-client",
-  "version": "0.1.2",
+  "version": "0.1.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mixos-go/opensellpy"
+  },
   "description": "OpenSellPy — OmniClient orchestrator + plugin registry. Depends only on core.",
   "publishConfig": {
     "access": "public"

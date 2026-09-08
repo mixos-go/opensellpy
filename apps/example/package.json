@@ -1,6 +1,6 @@
 {
   "name": "@mixos-go/opensellpy-example",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "OpenSellPy — consumer app contoh / smoke test manual.",
   "private": true,
   "type": "module",

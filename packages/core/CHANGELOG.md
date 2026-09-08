@@ -1,5 +1,11 @@
 # @mixos-go/opensellpy-core
 
+## 0.1.3
+
+### Patch Changes
+
+- link repository field agar package terhubung ke repo public (opensellpy)
+
 ## 0.1.2
 
 ### Patch Changes
