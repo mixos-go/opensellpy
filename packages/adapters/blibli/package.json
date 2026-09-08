@@ -1,9 +1,9 @@
 {
   "name": "@mixos-go/opensellpy-adapter-blibli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "OpenSellPy — Blibli adapter. Maps @mixos-go/bli-bli-sdk connector to core domain contracts.",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "type": "module",
   "main": "dist/index.js",

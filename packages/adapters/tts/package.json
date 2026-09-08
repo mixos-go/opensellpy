@@ -1,9 +1,9 @@
 {
   "name": "@mixos-go/opensellpy-adapter-tts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "OpenSellPy — TikTok Shop (pasca-merger Tokopedia) adapter. Maps @mixos-go/tiktok-shop-sdk connector to core domain contracts.",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "type": "module",
   "main": "dist/index.js",

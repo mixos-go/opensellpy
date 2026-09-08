@@ -1,9 +1,9 @@
 {
   "name": "@mixos-go/opensellpy-core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "OpenSellPy — domain contracts & shared types. Platform-free core.",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "type": "module",
   "main": "dist/index.js",

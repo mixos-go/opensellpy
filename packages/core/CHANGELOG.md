@@ -1,5 +1,11 @@
 # @mixos-go/opensellpy-core
 
+## 0.1.2
+
+### Patch Changes
+
+- Publish npm sebagai package PUBLIC di GitHub Packages (publishConfig.access) agar mudah dipakai lintas team
+
 ## 0.1.1
 
 ### Patch Changes
